@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:drift/drift.dart';
+import 'package:money_scope/src/core/storage/database/dao/analytics_dao.dart';
 import 'package:money_scope/src/core/storage/database/dao/categories_dao.dart';
 import 'package:money_scope/src/core/storage/database/dao/expenses_dao.dart';
 import 'package:money_scope/src/core/storage/database/tables/categories_table.dart';
@@ -12,7 +13,7 @@ part 'app_database.g.dart';
 
 @DriftDatabase(
   tables: [CategoriesTable, ExpensesTable],
-  daos: [ExpensesDao, CategoriesDao],
+  daos: [ExpensesDao, CategoriesDao, AnalyticsDao],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());

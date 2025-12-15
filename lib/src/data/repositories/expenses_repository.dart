@@ -15,4 +15,9 @@ abstract class ExpenseRepository {
     required DateTime start,
     required DateTime end,
   });
+
+  Future<List<ExpenseWithCategory>> getExpensesWithCategoryByMonth({
+    required DateTime start,
+    required DateTime end,
+  });
 }

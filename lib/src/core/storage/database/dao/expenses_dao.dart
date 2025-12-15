@@ -13,7 +13,8 @@ class ExpenseWithCategoryData {
 }
 
 @DriftAccessor(tables: [ExpensesTable, CategoriesTable])
-class ExpensesDao extends DatabaseAccessor<AppDatabase> with _$ExpensesDaoMixin {
+class ExpensesDao extends DatabaseAccessor<AppDatabase>
+    with _$ExpensesDaoMixin {
   ExpensesDao(super.db);
 
   // Insert
@@ -25,14 +26,15 @@ class ExpensesDao extends DatabaseAccessor<AppDatabase> with _$ExpensesDaoMixin 
       (delete(expensesTable)..where((tbl) => tbl.id.equals(id))).go();
 
   // Watch all expenses
-  Stream<List<ExpensesTableData>> watchAllExpenses() => select(expensesTable).watch();
+  Stream<List<ExpensesTableData>> watchAllExpenses() =>
+      select(expensesTable).watch();
 
   Stream<List<ExpenseWithCategoryData>> watchAllExpensesWithCategory() {
     final query = select(expensesTable).join([
       innerJoin(
         categoriesTable,
         categoriesTable.id.equalsExp(expensesTable.categoryId),
-      )
+      ),
     ]);
 
     return query.watch().map((rows) {
@@ -45,6 +47,37 @@ class ExpensesDao extends DatabaseAccessor<AppDatabase> with _$ExpensesDaoMixin 
     });
   }
 
+  Future<List<ExpenseWithCategoryData>> getExpensesWithCategoryByMonth({
+    required DateTime start,
+    required DateTime end,
+  }) async {
+    final query =
+        select(expensesTable).join([
+            innerJoin(
+              categoriesTable,
+              categoriesTable.id.equalsExp(expensesTable.categoryId),
+            ),
+          ])
+          ..where(expensesTable.date.isBetweenValues(start, end))
+          ..orderBy([
+            OrderingTerm(
+              expression: expensesTable.date,
+              mode: OrderingMode.desc,
+            ),
+          ]);
+
+    final rows = await query.get();
+
+    return rows
+        .map(
+          (row) => ExpenseWithCategoryData(
+            expense: row.readTable(expensesTable),
+            category: row.readTable(categoriesTable),
+          ),
+        )
+        .toList();
+  }
+
   // Monthly expenses
   Future<List<ExpensesTableData>> getExpensesByMonth(
     DateTime start,
@@ -52,7 +85,6 @@ class ExpensesDao extends DatabaseAccessor<AppDatabase> with _$ExpensesDaoMixin 
   ) {
     return (select(
       expensesTable,
-    )..where((tbl) => tbl.date.isBetweenValues(start, end)))
-        .get();
+    )..where((tbl) => tbl.date.isBetweenValues(start, end))).get();
   }
 }

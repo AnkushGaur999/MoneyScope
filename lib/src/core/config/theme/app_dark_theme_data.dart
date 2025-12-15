@@ -50,8 +50,8 @@ class AppDarkThemeData {
     dividerTheme: const DividerThemeData(color: MoneyScopeColorsDark.divider),
 
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: MoneyScopeColorsDark.primary,
-      foregroundColor: MoneyScopeColorsDark.onPrimary,
+      backgroundColor: MoneyScopeColorsDark.secondary,
+      foregroundColor: MoneyScopeColorsDark.onSecondary,
     ),
 
   );

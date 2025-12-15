@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
 class MonthSelector extends StatelessWidget {
-  const MonthSelector({super.key});
+  final String selectedMonth;
+  final VoidCallback onPrevious;
+  final VoidCallback onNext;
+
+  const MonthSelector({
+    super.key,
+    required this.onPrevious,
+    required this.onNext,
+    required this.selectedMonth,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +18,7 @@ class MonthSelector extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.all(10),
-      decoration:  BoxDecoration(
+      decoration: BoxDecoration(
         color: theme.colorScheme.surface,
         border: Border(bottom: BorderSide(color: theme.dividerColor)),
       ),
@@ -18,22 +27,26 @@ class MonthSelector extends StatelessWidget {
         spacing: 20,
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: onPrevious,
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
               color: theme.colorScheme.primary,
             ),
           ),
 
-          Text(
-            "September 25",
-            style: Theme.of(
-              context,
-            ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+          SizedBox(
+            width: 180,
+            child: Text(
+              textAlign: TextAlign.center,
+              selectedMonth,
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+            ),
           ),
 
-           IconButton(
-            onPressed: () {},
+          IconButton(
+            onPressed: onNext,
             icon: Icon(
               Icons.arrow_forward_ios_rounded,
               color: theme.colorScheme.primary,

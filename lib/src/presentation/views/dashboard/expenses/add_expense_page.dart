@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:money_scope/src/core/storage/database/mapper/category_icon_mapper.dart';
 import 'package:money_scope/src/domain/entities/category_entity.dart';
 import 'package:money_scope/src/domain/entities/expense_entity.dart';
@@ -59,9 +60,10 @@ class _AddExpensePageState extends ConsumerState<AddExpensePage> {
       category: _selectedCategory!.name,
       notes: expense.note ?? '',
       onConfirm: () {
-        ref.read(expenseProvider.notifier).addExpense(expense).then((_) {
-          Navigator.of(context).pop();
-        });
+        if (_selectedDate != null) {
+          ref.read(expenseProvider.notifier).addExpense(expense);
+          context.pop();
+        }
       },
     );
   }

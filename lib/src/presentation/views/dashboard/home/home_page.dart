@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBar(
+      appBar: AppBar(
         title: const Text("MoneyScope"),
         actions: [
           Consumer(
@@ -39,7 +39,11 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const MonthSelector(),
+            MonthSelector(
+              selectedMonth: "Sep 2025",
+              onPrevious: () {},
+              onNext: () {},
+            ),
 
             const TotalSpentCard(),
 

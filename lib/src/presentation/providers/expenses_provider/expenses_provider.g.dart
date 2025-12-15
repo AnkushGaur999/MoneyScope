@@ -56,11 +56,64 @@ final class ExpenseRepositoryProvider
 
 String _$expenseRepositoryHash() => r'c8ee1c32766a63bf5166a9b8c3432aa2d0a354ba';
 
+@ProviderFor(SelectedMonth)
+const selectedMonthProvider = SelectedMonthProvider._();
+
+final class SelectedMonthProvider
+    extends $NotifierProvider<SelectedMonth, DateTime> {
+  const SelectedMonthProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'selectedMonthProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$selectedMonthHash();
+
+  @$internal
+  @override
+  SelectedMonth create() => SelectedMonth();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(DateTime value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<DateTime>(value),
+    );
+  }
+}
+
+String _$selectedMonthHash() => r'082c60a74a4eb318fad9085a5280ee560b506aad';
+
+abstract class _$SelectedMonth extends $Notifier<DateTime> {
+  DateTime build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<DateTime, DateTime>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<DateTime, DateTime>,
+              DateTime,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}
+
 @ProviderFor(Expense)
 const expenseProvider = ExpenseProvider._();
 
 final class ExpenseProvider
-    extends $StreamNotifierProvider<Expense, List<ExpenseWithCategory>> {
+    extends $AsyncNotifierProvider<Expense, List<ExpenseWithCategory>> {
   const ExpenseProvider._()
     : super(
         from: null,
@@ -80,10 +133,10 @@ final class ExpenseProvider
   Expense create() => Expense();
 }
 
-String _$expenseHash() => r'063091667b922d89e60912f6331f8fed0520db32';
+String _$expenseHash() => r'7ba8196a747f49b7fff444ac13466bf9729f723f';
 
-abstract class _$Expense extends $StreamNotifier<List<ExpenseWithCategory>> {
-  Stream<List<ExpenseWithCategory>> build();
+abstract class _$Expense extends $AsyncNotifier<List<ExpenseWithCategory>> {
+  FutureOr<List<ExpenseWithCategory>> build();
   @$mustCallSuper
   @override
   void runBuild() {

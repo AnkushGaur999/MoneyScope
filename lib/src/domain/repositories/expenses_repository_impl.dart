@@ -29,21 +29,23 @@ class ExpenseRepositoryImpl implements ExpenseRepository {
   @override
   Stream<List<ExpenseEntity>> watchAllExpenses() {
     return dao.watchAllExpenses().map(
-      (rows) => rows.map((e) => e.toDomain()).toList(),
+          (rows) => rows.map((e) => e.toDomain()).toList(),
     );
   }
 
   @override
   Stream<List<ExpenseWithCategory>> watchAllExpensesWithCategory() {
     return dao.watchAllExpensesWithCategory().map(
-      (rows) => rows
-          .map(
-            (e) => ExpenseWithCategory(
-              expense: e.expense.toDomain(),
-              category: e.category.toDomain(),
-            ),
+          (rows) =>
+          rows
+              .map(
+                (e) =>
+                ExpenseWithCategory(
+                  expense: e.expense.toDomain(),
+                  category: e.category.toDomain(),
+                ),
           )
-          .toList(),
+              .toList(),
     );
   }
 
@@ -52,11 +54,26 @@ class ExpenseRepositoryImpl implements ExpenseRepository {
     dao.deleteExpense(id);
   }
 
+
   @override
   Future<List<ExpensesTableData>> getExpensesByMonth({
     required DateTime start,
     required DateTime end,
   }) {
     return dao.getExpensesByMonth(start, end);
+  }
+
+  @override
+  Future<List<ExpenseWithCategory>> getExpensesWithCategoryByMonth(
+      {required DateTime start, required DateTime end}) async {
+    final rows = await dao.getExpensesWithCategoryByMonth(
+        start: start, end: end);
+
+    return rows
+        .map((e) =>
+        ExpenseWithCategory(
+            expense: e.expense.toDomain(), category: e.category.toDomain()))
+        .toList();
+
   }
 }

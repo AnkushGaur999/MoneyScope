@@ -47,8 +47,8 @@ class DashboardPage extends StatelessWidget {
                 child: Row(
                   children: [
                     BottomNavItem(
-                      icon: Icons.dashboard_outlined,
-                      label: "Dashboard",
+                      icon: Icons.home,
+                      label: "Home",
                       isSelected: index == 0,
                       onTap: () => _onTap(0),
                     ),

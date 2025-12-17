@@ -42,7 +42,7 @@ final class AnalyticsRangeSelectorProvider
 }
 
 String _$analyticsRangeSelectorHash() =>
-    r'ae09f1b4f5debd41a35d33b91d833a7fbce1cf13';
+    r'446687c767215ec4bed35cc8ce5b24831ba18a38';
 
 abstract class _$AnalyticsRangeSelector extends $Notifier<AnalyticsRange> {
   AnalyticsRange build();
@@ -135,7 +135,7 @@ final class AnalyticsProvider
   Analytics create() => Analytics();
 }
 
-String _$analyticsHash() => r'b40c7f934bcde64be663ed2bd982536eb9a627af';
+String _$analyticsHash() => r'077792af6eac06fdf77e769afd8e159651c2757e';
 
 abstract class _$Analytics extends $AsyncNotifier<AnalyticsState> {
   FutureOr<AnalyticsState> build();

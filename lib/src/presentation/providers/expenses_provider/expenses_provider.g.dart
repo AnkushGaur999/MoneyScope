@@ -133,7 +133,7 @@ final class ExpenseProvider
   Expense create() => Expense();
 }
 
-String _$expenseHash() => r'7ba8196a747f49b7fff444ac13466bf9729f723f';
+String _$expenseHash() => r'84ea0388a4fd9a936cb924a02ea0e830470e43be';
 
 abstract class _$Expense extends $AsyncNotifier<List<ExpenseWithCategory>> {
   FutureOr<List<ExpenseWithCategory>> build();

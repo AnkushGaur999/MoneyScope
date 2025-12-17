@@ -61,7 +61,6 @@ class AppRoute {
                 path: _expenses,
                 pageBuilder: (context, state) =>
                     fadeScalePage(state: state, child: const ExpensesPage()),
-
               ),
             ],
           ),
@@ -101,10 +100,8 @@ class AppRoute {
       GoRoute(
         name: AppRoutes.addExpense,
         path: _addExpense,
-        pageBuilder: (context, state) => fadeScalePage(
-          state: state,
-          child: const AddExpensePage(),
-        ),
+        pageBuilder: (context, state) =>
+            fadeScalePage(state: state, child: const AddExpensePage()),
       ),
     ],
     errorBuilder: (context, state) {

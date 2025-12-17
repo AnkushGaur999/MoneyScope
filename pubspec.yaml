@@ -6,7 +6,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.10.1
+  sdk: ^3.10.4
 
 
 dependencies:
@@ -27,6 +27,7 @@ dependencies:
   uuid: ^4.5.2
   intl: ^0.20.2
   fl_chart: ^1.1.1
+  flutter_svg: ^2.2.3
 
 
 dev_dependencies:
@@ -52,10 +53,13 @@ flutter:
      - assets/images/
      - assets/files/
      - assets/fonts/
+     - assets/svgs
      - .env
 
 flutter_gen:
   output: lib/src/core/config/generated/
+  integrations:
+    flutter_svg: true
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -9,6 +9,8 @@ import 'package:money_scope/src/presentation/providers/expenses_provider/expense
 import 'package:money_scope/src/presentation/views/dashboard/expenses/widgets/no_expenses_view.dart';
 import 'package:money_scope/src/presentation/views/dashboard/home/widgets/month_selector.dart';
 
+
+
 class ExpensesPage extends ConsumerStatefulWidget {
   const ExpensesPage({super.key});
 
@@ -19,20 +21,19 @@ class ExpensesPage extends ConsumerStatefulWidget {
 class _ExpensesPageState extends ConsumerState<ExpensesPage> {
   final _months = getPreviousMonths();
 
-
   void _changeMonth(int delta) {
-    final currentMonth = ref.read(selectedMonthProvider);
+    final currentMonth = ref.read(expenseSelectedMonthProvider);
     final index = _months.indexOf(currentMonth);
     final nextIndex = index + delta;
 
     if (nextIndex < 0 || nextIndex >= _months.length) return;
 
-    ref.read(selectedMonthProvider.notifier).update(_months[nextIndex]);
+    ref.read(expenseSelectedMonthProvider.notifier).update(_months[nextIndex]);
   }
 
   @override
   Widget build(BuildContext context) {
-    final selectedMonth = ref.watch(selectedMonthProvider);
+    final selectedMonth = ref.watch(expenseSelectedMonthProvider);
     final expenseAsyncNotifier = ref.watch(expenseProvider);
     return Scaffold(
       appBar: AppBar(
@@ -71,15 +72,14 @@ class _ExpensesPageState extends ConsumerState<ExpensesPage> {
                       ),
                       title: Text(
                         category.name,
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: Theme.of(context).textTheme.titleMedium
+                            ?.copyWith(fontWeight: FontWeight.bold),
                       ),
                       subtitle: Text(getDayLabel(expense.date)),
                       trailing: Text(
                         '₹${expense.amount.toStringAsFixed(2)}',
                         style: const TextStyle(
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w300,
                           fontSize: 20,
                         ),
                       ),

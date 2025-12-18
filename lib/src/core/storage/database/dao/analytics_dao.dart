@@ -64,7 +64,6 @@ class AnalyticsDao extends DatabaseAccessor<AppDatabase>
     DateTime start,
     DateTime end,
   ) async {
-
     final rows = await customSelect(
       '''
         SELECT

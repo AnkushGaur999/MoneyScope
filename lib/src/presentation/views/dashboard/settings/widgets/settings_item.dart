@@ -6,16 +6,16 @@ class SettingsItem extends StatelessWidget {
   final Widget action;
   final Color? iconColor;
   final Color? textColor;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   const SettingsItem({
     super.key,
     required this.icon,
     required this.label,
-    required this.onTap,
     required this.action,
     this.iconColor,
     this.textColor,
+    this.onTap,
   });
 
   @override
@@ -26,39 +26,43 @@ class SettingsItem extends StatelessWidget {
         borderRadius: BorderRadiusGeometry.circular(6),
       ),
       elevation: 1,
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              spacing: 10,
-              children: [
-                Icon(icon, color: iconColor ?? Colors.grey.shade600),
-                Text(
-                  label,
-                  style: textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: textColor,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(6),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                spacing: 10,
+                children: [
+                  Icon(icon, color: iconColor ?? Colors.grey.shade600),
+                  Text(
+                    label,
+                    style: textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: textColor,
+                    ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
 
-            Row(
-              spacing: 10,
-              children: [
-                Text(
-                  "",
-                  style: textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
+              Row(
+                spacing: 10,
+                children: [
+                  Text(
+                    "",
+                    style: textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
 
-                GestureDetector(onTap: onTap, child: action),
-              ],
-            ),
-          ],
+                  action
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

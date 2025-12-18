@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:money_scope/src/core/config/helper/time_formater.dart';
+import 'package:money_scope/src/core/storage/database/mapper/category_icon_mapper.dart';
+import 'package:money_scope/src/domain/entities/expense_with_category.dart';
 
 class RecentExpenses extends StatelessWidget {
-  const RecentExpenses({super.key});
+  final List<ExpenseWithCategory> recentExpenseList;
+
+  const RecentExpenses({super.key, required this.recentExpenseList});
 
   @override
   Widget build(BuildContext context) {
@@ -14,20 +19,55 @@ class RecentExpenses extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-              Text(
+            Text(
               'Recent Expenses',
               style: textTheme.titleMedium?.copyWith(
-                fontSize: 20,
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const  Divider(),
-            const _ExpenseTile('Groceries', '₹1,200', 'Today', Icons.shopping_cart),
-            const  Divider(),
-            const _ExpenseTile('Taxi', '₹300', 'Yesterday', Icons.local_taxi),
+
             const Divider(),
-            const _ExpenseTile('Movie', '₹600', 'Sep 14', Icons.movie),
-            const Divider(),
+
+            SizedBox(
+              height: 260,
+              child: recentExpenseList.isNotEmpty
+                  ? ListView.separated(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) => _ExpenseTile(
+                        recentExpenseList[index].category.name,
+                        '₹${recentExpenseList[index].expense.amount}',
+                        getDayLabel(recentExpenseList[index].expense.date),
+                        Icon(
+                          CategoryIconMapper.get(
+                            recentExpenseList[index].category.icon,
+                          ),
+                          color: Color(recentExpenseList[index].category.color),
+                          size: 30,
+                        ),
+                      ),
+                      separatorBuilder: (context, index) => Divider(),
+                      itemCount: recentExpenseList.length,
+                    )
+                  : const Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 20,
+                        children: [
+                          Icon(
+                            Icons.payments_outlined,
+                            size: 60,
+                            color: Colors.blueAccent,
+                          ),
+                          Text(
+                            "No Expenses Found!",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+            ),
           ],
         ),
       ),
@@ -39,7 +79,7 @@ class _ExpenseTile extends StatelessWidget {
   final String title;
   final String amount;
   final String date;
-  final IconData icon;
+  final Icon icon;
 
   const _ExpenseTile(this.title, this.amount, this.date, this.icon);
 
@@ -48,7 +88,7 @@ class _ExpenseTile extends StatelessWidget {
     final colors = Theme.of(context).colorScheme;
 
     return ListTile(
-      leading: Icon(icon, color: colors.primary),
+      leading: icon,
       title: Text(title),
       subtitle: Text(date),
       trailing: Text(

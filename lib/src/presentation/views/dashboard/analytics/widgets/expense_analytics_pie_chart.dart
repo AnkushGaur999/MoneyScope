@@ -5,11 +5,13 @@ import 'package:money_scope/src/domain/entities/category_spent_entity.dart';
 class ExpenseAnalyticsPieChart extends StatefulWidget {
   final List<CategorySpentEntity> spentCategories;
   final double totalAmount;
+  final double? aspectRatio;
 
   const ExpenseAnalyticsPieChart({
     super.key,
     required this.spentCategories,
     required this.totalAmount,
+    this.aspectRatio,
   });
 
   @override
@@ -21,58 +23,59 @@ class _ExpenseAnalyticsPietState extends State<ExpenseAnalyticsPieChart> {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1.3,
-      child: Row(
-        children: <Widget>[
-          const SizedBox(height: 18),
-          Expanded(
-            child: AspectRatio(
-              aspectRatio: 1,
-              child: PieChart(
-                duration: Duration(milliseconds: 800),
-                curve: Curves.bounceOut,
-                PieChartData(
-                  pieTouchData: PieTouchData(
-                    touchCallback: (FlTouchEvent event, pieTouchResponse) {
-                      setState(() {
-                        if (!event.isInterestedForInteractions ||
-                            pieTouchResponse == null ||
-                            pieTouchResponse.touchedSection == null) {
-                          touchedIndex = -1;
-                          return;
-                        }
-                        touchedIndex = pieTouchResponse
-                            .touchedSection!
-                            .touchedSectionIndex;
-                      });
-                    },
-                  ),
-                  borderData: FlBorderData(show: false),
-                  sectionsSpace: 0,
-                  centerSpaceRadius: 40,
-                  sections: showingSections(),
+    return Row(
+      children: [
+        const SizedBox(height: 10),
+        Expanded(
+          child: AspectRatio(
+            aspectRatio: widget.aspectRatio ?? 1.3,
+            child: PieChart(
+              duration: Duration(milliseconds: 800),
+              curve: Curves.bounceOut,
+              PieChartData(
+                pieTouchData: PieTouchData(
+                  touchCallback: (FlTouchEvent event, pieTouchResponse) {
+                    setState(() {
+                      if (!event.isInterestedForInteractions ||
+                          pieTouchResponse == null ||
+                          pieTouchResponse.touchedSection == null) {
+                        touchedIndex = -1;
+                        return;
+                      }
+                      touchedIndex = pieTouchResponse
+                          .touchedSection!
+                          .touchedSectionIndex;
+                    });
+                  },
                 ),
+                borderData: FlBorderData(show: false),
+                sectionsSpace: 0,
+                centerSpaceRadius: 40,
+                sections: showingSections(),
               ),
             ),
           ),
+        ),
 
-          const SizedBox(width: 28),
-        ],
-      ),
+        const SizedBox(width: 10),
+      ],
     );
   }
 
   List<PieChartSectionData> showingSections() {
+    if (widget.spentCategories.isEmpty) {
+      return [PieChartSectionData(color: Colors.grey)];
+    }
+
     return List.generate(widget.spentCategories.length, (i) {
       final isTouched = i == touchedIndex;
       final fontSize = isTouched ? 18.0 : 12.0;
       final radius = isTouched ? 60.0 : 50.0;
       const shadows = [Shadow(color: Colors.black, blurRadius: 2)];
 
-     final spentCategory =  widget.spentCategories[i];
+      final spentCategory = widget.spentCategories[i];
 
-     double percent = (spentCategory.total * 100)/ widget.totalAmount;
+      double percent = (spentCategory.total * 100) / widget.totalAmount;
 
       return PieChartSectionData(
         color: Color(spentCategory.color),

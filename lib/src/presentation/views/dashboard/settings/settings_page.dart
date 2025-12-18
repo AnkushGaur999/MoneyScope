@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:money_scope/src/core/constants/app_routes.dart';
 import 'package:money_scope/src/presentation/providers/theme/app_theme_provider.dart';
 import 'package:money_scope/src/presentation/providers/theme/theme_state.dart';
 import 'package:money_scope/src/presentation/views/dashboard/settings/widgets/settings_item.dart';
@@ -34,29 +36,19 @@ class SettingsPage extends StatelessWidget {
             ),
 
             SettingsItem(
+              icon: Icons.person,
+              label: "Account",
+              onTap: () => context.pushNamed(AppRoutes.profile),
+              action: const Icon(Icons.arrow_forward_ios_rounded),
+              iconColor: Colors.grey,
+            ),
+
+            SettingsItem(
               icon: Icons.wallet_rounded,
               label: "Currency",
               onTap: () {},
-              action: Icon(Icons.arrow_forward_ios_rounded),
-            ),
-
-            Consumer(
-              builder: (context, ref, child) {
-                final isLight = ref.watch(appThemeProvider) is LightTheme;
-                return SettingsItem(icon:isLight ? Icons.light_mode: Icons.dark_mode,
-                  label: "Theme",
-                  onTap: () {}, action: SizedBox(
-                    height: 24,
-                    child: Switch.adaptive(
-                      activeTrackColor: colors.secondary,
-                      thumbColor: WidgetStatePropertyAll(Colors.white),
-                      value: isLight,
-                      onChanged: (bool value) {
-                        ref.read(appThemeProvider.notifier).toggleTheme();
-                      },
-                    ),
-                  ),);
-              },
+              action: const Icon(Icons.arrow_forward_ios_rounded),
+              iconColor: Colors.lightGreen,
             ),
 
             const SizedBox(height: 16),
@@ -72,11 +64,37 @@ class SettingsPage extends StatelessWidget {
               ),
             ),
 
+            Consumer(
+              builder: (context, ref, child) {
+                final themeState = ref.watch(appThemeProvider);
+
+                final isLight = themeState is LightTheme;
+
+                return SettingsItem(
+                  icon: isLight ? Icons.light_mode : Icons.dark_mode,
+                  label: "Theme",
+                  iconColor: isLight ? Colors.amber : Colors.grey,
+                  action: SizedBox(
+                    height: 24,
+                    child: Switch.adaptive(
+                      activeTrackColor: colors.secondary,
+                      thumbColor: WidgetStatePropertyAll(Colors.white),
+                      value: isLight,
+                      onChanged: (bool value) {
+                        ref.read(appThemeProvider.notifier).toggleTheme();
+                      },
+                    ),
+                  ),
+                );
+              },
+            ),
+
             SettingsItem(
               icon: Icons.wallet_rounded,
               label: "Notifications",
               onTap: () {},
-              action: Icon(Icons.arrow_forward_ios_rounded),
+              action: const Icon(Icons.arrow_forward_ios_rounded),
+              iconColor: Colors.blueGrey,
             ),
 
             const SizedBox(height: 16),
@@ -93,17 +111,19 @@ class SettingsPage extends StatelessWidget {
             ),
 
             SettingsItem(
-              icon: Icons.category_rounded,
+              icon: Icons.list_alt,
               label: "Manage Categories",
               onTap: () {},
-              action: Icon(Icons.arrow_forward_ios_rounded),
+              action: const Icon(Icons.arrow_forward_ios_rounded),
+              iconColor: Colors.blue,
             ),
 
             SettingsItem(
               icon: Icons.folder_zip_rounded,
               label: "Data Export (CSV)",
               onTap: () {},
-              action: Icon(Icons.arrow_forward_ios_rounded),
+              action: const Icon(Icons.arrow_forward_ios_rounded),
+              iconColor: Colors.green,
             ),
 
             const SizedBox(height: 16),
@@ -123,22 +143,23 @@ class SettingsPage extends StatelessWidget {
               icon: Icons.privacy_tip_rounded,
               label: "Privacy Policy",
               onTap: () {},
-              action: Icon(Icons.arrow_forward_ios_rounded),
+              action: const Icon(Icons.arrow_forward_ios_rounded),
+              iconColor: Colors.blue,
             ),
 
             SettingsItem(
-              icon: Icons.folder_zip_rounded,
+              icon: Icons.description_rounded,
               label: "Terms & Conditions",
               onTap: () {},
-              action: Icon(Icons.arrow_forward_ios_rounded),
+              action: const Icon(Icons.arrow_forward_ios_rounded),
             ),
 
             const SizedBox(height: 12),
 
             SettingsItem(
-              icon: Icons.folder_zip_rounded,
+              icon: Icons.cloud_download_rounded,
               label: "Cloud Backup",
-              onTap: () {},
+              iconColor: Colors.amber,
               action: SizedBox(
                 height: 24,
                 child: Switch.adaptive(
@@ -151,18 +172,18 @@ class SettingsPage extends StatelessWidget {
             ),
 
             SettingsItem(
-              icon: Icons.folder_zip_rounded,
+              icon: Icons.lock_open_rounded,
               label: "Change Passcode",
               onTap: () {},
-              action: Icon(Icons.arrow_forward_ios_rounded),
+              action: const Icon(Icons.arrow_forward_ios_rounded),
             ),
 
             SettingsItem(
               icon: Icons.delete_forever,
               label: "Delete All Data",
               onTap: () {},
-              action: Icon(Icons.arrow_forward_ios_rounded),
-              iconColor: Colors.red,
+              action: const Icon(Icons.arrow_forward_ios_rounded),
+              iconColor:  Colors.red,
               textColor: Colors.red,
             ),
           ],

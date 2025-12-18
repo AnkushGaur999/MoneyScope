@@ -70,6 +70,9 @@ class $AssetsSvgsGen {
   /// File path: assets/svgs/privacy.svg
   SvgGenImage get privacy => const SvgGenImage('assets/svgs/privacy.svg');
 
+  /// File path: assets/svgs/wallet.svg
+  SvgGenImage get wallet => const SvgGenImage('assets/svgs/wallet.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
     cloudUpload,
@@ -81,6 +84,7 @@ class $AssetsSvgsGen {
     lock,
     notification,
     privacy,
+    wallet,
   ];
 }
 

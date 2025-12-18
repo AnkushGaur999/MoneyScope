@@ -56,28 +56,28 @@ final class ExpenseRepositoryProvider
 
 String _$expenseRepositoryHash() => r'c8ee1c32766a63bf5166a9b8c3432aa2d0a354ba';
 
-@ProviderFor(SelectedMonth)
-const selectedMonthProvider = SelectedMonthProvider._();
+@ProviderFor(ExpenseSelectedMonth)
+const expenseSelectedMonthProvider = ExpenseSelectedMonthProvider._();
 
-final class SelectedMonthProvider
-    extends $NotifierProvider<SelectedMonth, DateTime> {
-  const SelectedMonthProvider._()
+final class ExpenseSelectedMonthProvider
+    extends $NotifierProvider<ExpenseSelectedMonth, DateTime> {
+  const ExpenseSelectedMonthProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'selectedMonthProvider',
+        name: r'expenseSelectedMonthProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$selectedMonthHash();
+  String debugGetCreateSourceHash() => _$expenseSelectedMonthHash();
 
   @$internal
   @override
-  SelectedMonth create() => SelectedMonth();
+  ExpenseSelectedMonth create() => ExpenseSelectedMonth();
 
   /// {@macro riverpod.override_with_value}
   Override overrideWithValue(DateTime value) {
@@ -88,9 +88,10 @@ final class SelectedMonthProvider
   }
 }
 
-String _$selectedMonthHash() => r'082c60a74a4eb318fad9085a5280ee560b506aad';
+String _$expenseSelectedMonthHash() =>
+    r'c1901e3415e8e08a9ebe54c910db5ce6c244ba27';
 
-abstract class _$SelectedMonth extends $Notifier<DateTime> {
+abstract class _$ExpenseSelectedMonth extends $Notifier<DateTime> {
   DateTime build();
   @$mustCallSuper
   @override
@@ -133,7 +134,7 @@ final class ExpenseProvider
   Expense create() => Expense();
 }
 
-String _$expenseHash() => r'84ea0388a4fd9a936cb924a02ea0e830470e43be';
+String _$expenseHash() => r'b705224b3d0ab71bebabdb0efbd35b36bd1c1171';
 
 abstract class _$Expense extends $AsyncNotifier<List<ExpenseWithCategory>> {
   FutureOr<List<ExpenseWithCategory>> build();

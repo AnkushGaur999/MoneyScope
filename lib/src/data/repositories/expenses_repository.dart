@@ -14,10 +14,12 @@ abstract class ExpenseRepository {
   Future<List<ExpensesTableData>> getExpensesByMonth({
     required DateTime start,
     required DateTime end,
+    int? limit,
   });
 
   Future<List<ExpenseWithCategory>> getExpensesWithCategoryByMonth({
     required DateTime start,
     required DateTime end,
+    int? limit,
   });
 }

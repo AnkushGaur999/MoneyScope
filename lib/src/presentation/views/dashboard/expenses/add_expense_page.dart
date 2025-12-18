@@ -62,6 +62,7 @@ class _AddExpensePageState extends ConsumerState<AddExpensePage> {
       onConfirm: () {
         if (_selectedDate != null) {
           ref.read(expenseProvider.notifier).addExpense(expense);
+          ref.invalidate(expenseProvider);
           context.pop();
         }
       },

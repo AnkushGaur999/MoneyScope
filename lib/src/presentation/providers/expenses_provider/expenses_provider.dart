@@ -1,11 +1,16 @@
+import 'package:money_scope/src/core/services/notification_services.dart';
 import 'package:money_scope/src/data/repositories/expenses_repository.dart';
 import 'package:money_scope/src/domain/entities/expense_entity.dart';
 import 'package:money_scope/src/domain/entities/expense_with_category.dart';
+import 'package:money_scope/src/domain/entities/notification_entity.dart';
 import 'package:money_scope/src/domain/repositories/expenses_repository_impl.dart';
 import 'package:money_scope/src/presentation/providers/analytics_provider/analytics_provider.dart';
+import 'package:money_scope/src/presentation/providers/category_provider/category_provider.dart';
 import 'package:money_scope/src/presentation/providers/database_provider/database_provider.dart';
 import 'package:money_scope/src/presentation/providers/home_provider/home_provider.dart';
+import 'package:money_scope/src/presentation/providers/notification_provider/notification_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:uuid/uuid.dart';
 
 part 'expenses_provider.g.dart';
 
@@ -47,27 +52,41 @@ class Expense extends _$Expense {
         .getExpensesWithCategoryByMonth(start: start, end: end);
   }
 
-
   Future<void> addExpense(ExpenseEntity expense) async {
     await ref.read(expenseRepositoryProvider).addExpense(expense);
-    ref.read(analyticsProvider.notifier).getMonthData();
+    ref.invalidate(analyticsRangeSelectorProvider);
     ref.invalidate(homeProvider);
 
-  }
+    final category = ref
+        .read(categoryProvider)
+        .value
+        ?.where((category) => expense.categoryId == category.id)
+        .first;
 
-  // Future<void> _getUpdateMonthExpenses() async {
-  //   final selectedMonth = ref.read(expenseSelectedMonthProvider);
-  //
-  //   final start = DateTime(selectedMonth.year, selectedMonth.month, 1);
-  //   final end = DateTime(
-  //     selectedMonth.year,
-  //     selectedMonth.month + 1,
-  //     1,
-  //   ).subtract(const Duration(seconds: 1));
-  //   final result = await ref
-  //       .read(expenseRepositoryProvider)
-  //       .getExpensesWithCategoryByMonth(start: start, end: end);
-  //
-  //   state = AsyncData(result);
-  // }
+    if (category == null) return;
+
+    final notification = NotificationEntity(
+      id: Uuid().v4(),
+      type: "expense_added",
+      title: expense.name,
+      message: "Expense Successfully Added",
+      icon: category.icon,
+      color: category.color,
+      isRead: false,
+      date: DateTime.now(),
+      metaData: MetaData(
+        categoryId: category.id,
+        expenseId: expense.id,
+        amount: expense.amount,
+      ),
+    );
+
+    ref.read(notificationProvider.notifier).add(notification);
+
+    NotificationServices.instance.showNotification(
+      id: 101,
+      title: expense.name,
+      body: "You expense is successfully added",
+    );
+  }
 }

@@ -3,17 +3,19 @@ import 'package:drift/drift.dart';
 import 'package:money_scope/src/core/storage/database/dao/analytics_dao.dart';
 import 'package:money_scope/src/core/storage/database/dao/categories_dao.dart';
 import 'package:money_scope/src/core/storage/database/dao/expenses_dao.dart';
+import 'package:money_scope/src/core/storage/database/dao/notification_dao.dart';
 import 'package:money_scope/src/core/storage/database/tables/categories_table.dart';
 import 'package:money_scope/src/core/storage/database/tables/expenses_table.dart';
 import 'package:drift/native.dart';
+import 'package:money_scope/src/core/storage/database/tables/notifications_table.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
 part 'app_database.g.dart';
 
 @DriftDatabase(
-  tables: [CategoriesTable, ExpensesTable],
-  daos: [ExpensesDao, CategoriesDao, AnalyticsDao],
+  tables: [CategoriesTable, ExpensesTable, NotificationsTable],
+  daos: [ExpensesDao, CategoriesDao, AnalyticsDao, NotificationDao],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());

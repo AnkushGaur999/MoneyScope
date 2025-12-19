@@ -92,7 +92,7 @@ class SettingsPage extends StatelessWidget {
             SettingsItem(
               icon: Icons.wallet_rounded,
               label: "Notifications",
-              onTap: () {},
+              onTap: () => context.pushNamed(AppRoutes.notification),
               action: const Icon(Icons.arrow_forward_ios_rounded),
               iconColor: Colors.blueGrey,
             ),

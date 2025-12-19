@@ -9,9 +9,5 @@ abstract class AnalyticsRepository {
     DateTime end,
   );
 
-  Future<List<DailySpentEntity>> dailyTrend(
-      DateTime start,
-      DateTime end,
-      );
-
+  Future<List<DailySpentEntity>> dailyTrend(DateTime start, DateTime end);
 }

@@ -48,7 +48,7 @@ final class HomeRepositoryProvider
   }
 }
 
-String _$homeRepositoryHash() => r'd14139920ce912ac8cb83f0363f1ef938b7b0e53';
+String _$homeRepositoryHash() => r'81f0bda84aeb495ea9942769f0977d6967789a24';
 
 @ProviderFor(Home)
 const homeProvider = HomeProvider._();
@@ -73,7 +73,7 @@ final class HomeProvider extends $AsyncNotifierProvider<Home, HomeState> {
   Home create() => Home();
 }
 
-String _$homeHash() => r'd56d45172fdc414335cb4955c25b0776cce57be0';
+String _$homeHash() => r'c8c3ba70c7750aced065f8b54d4e66167026b1ab';
 
 abstract class _$Home extends $AsyncNotifier<HomeState> {
   FutureOr<HomeState> build();

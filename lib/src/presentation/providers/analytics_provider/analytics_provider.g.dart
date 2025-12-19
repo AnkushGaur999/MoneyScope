@@ -135,7 +135,7 @@ final class AnalyticsProvider
   Analytics create() => Analytics();
 }
 
-String _$analyticsHash() => r'077792af6eac06fdf77e769afd8e159651c2757e';
+String _$analyticsHash() => r'09b2770cf502771783151ad38f8082d47dad910e';
 
 abstract class _$Analytics extends $AsyncNotifier<AnalyticsState> {
   FutureOr<AnalyticsState> build();

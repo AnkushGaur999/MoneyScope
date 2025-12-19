@@ -40,13 +40,15 @@ class Analytics extends _$Analytics {
     switch (range) {
       case AnalyticsRange.week:
         final now = DateTime.now();
-        start = now.subtract(const Duration(days: 6)).copyWith(
-          hour: 0,
-          minute: 0,
-          second: 0,
-          millisecond: 0,
-          microsecond: 0,
-        );
+        start = now
+            .subtract(const Duration(days: 6))
+            .copyWith(
+              hour: 0,
+              minute: 0,
+              second: 0,
+              millisecond: 0,
+              microsecond: 0,
+            );
         break;
 
       case AnalyticsRange.month:
@@ -58,41 +60,15 @@ class Analytics extends _$Analytics {
         break;
     }
 
-    return _fetchData(start, now);
+    return _fetchData(type: range.name, start: start, end: now);
   }
 
-  Future<void> getWeekData() async {
-    ref.read(analyticsRangeSelectorProvider.notifier).updateRange(AnalyticsRange.week);
-    state = const AsyncValue.loading();
-    final now = DateTime.now();
-    final startOfWeek = now.subtract(Duration(days: now.weekday - 1));
-    final start = DateTime(
-      startOfWeek.year,
-      startOfWeek.month,
-      startOfWeek.day,
-    );
-    state = await AsyncValue.guard(() => _fetchData(start, now));
-  }
-
-  Future<void> getMonthData() async {
-    ref.read(analyticsRangeSelectorProvider.notifier).updateRange(AnalyticsRange.month);
-    state = const AsyncValue.loading();
-    final now = DateTime.now();
-    final start = DateTime(now.year, now.month, 1);
-    state = await AsyncValue.guard(() => _fetchData(start, now));
-  }
-
-  Future<void> getYearData() async {
-    ref.read(analyticsRangeSelectorProvider.notifier).updateRange(AnalyticsRange.year);
-    state = const AsyncValue.loading();
-    final now = DateTime.now();
-    final start = DateTime(now.year, 1, 1);
-    state = await AsyncValue.guard(() => _fetchData(start, now));
-  }
-
-  Future<AnalyticsState> _fetchData(DateTime start, [DateTime? end]) async {
+  Future<AnalyticsState> _fetchData({
+    required String type,
+    required DateTime start,
+    required DateTime end,
+  }) async {
     final repo = ref.read(analyticsRepositoryProvider);
-    end ??= DateTime.now();
 
     final results = await Future.wait([
       repo.totalSpend(start, end),
@@ -105,6 +81,7 @@ class Analytics extends _$Analytics {
     final dailyTrend = results[2] as List<DailySpentEntity>;
 
     return AnalyticsState(
+      type: type,
       totalSpend: totalSpend,
       categoryBreakdown: categoryBreakdown,
       dailyTrend: dailyTrend,

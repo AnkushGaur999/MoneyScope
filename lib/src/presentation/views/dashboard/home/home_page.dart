@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:money_scope/src/core/config/generated/assets.gen.dart';
 import 'package:money_scope/src/core/constants/app_routes.dart';
 import 'package:money_scope/src/domain/entities/expense_with_category.dart';
-import 'package:money_scope/src/presentation/providers/home_provider/home_provider.dart';
+import 'package:money_scope/src/presentation/providers/home/home_provider.dart';
 import 'package:money_scope/src/presentation/views/dashboard/home/widgets/insights_card.dart';
 import 'package:money_scope/src/presentation/views/dashboard/home/widgets/recent_expenses.dart';
 import 'package:money_scope/src/presentation/views/dashboard/home/widgets/top_spending_breakdown.dart';
@@ -22,11 +22,11 @@ class _HomePageState extends ConsumerState<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: SizedBox(
-          height: 30,
-          width: 30,
-          child: InkWell(
-            onTap: () {},
+        leading: Card(
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          shape: CircleBorder(),
+          child: GestureDetector(
+             onTap: () => context.pushNamed(AppRoutes.profile),
             child: Assets.images.moneyScope.image(width: 24, height: 24),
           ),
         ),

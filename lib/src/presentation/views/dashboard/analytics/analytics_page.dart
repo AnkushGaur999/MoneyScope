@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:money_scope/src/core/storage/database/mapper/category_icon_mapper.dart';
 import 'package:money_scope/src/domain/entities/category_spent_entity.dart';
 import 'package:money_scope/src/domain/entities/daily_spent_entity.dart';
-import 'package:money_scope/src/presentation/providers/analytics_provider/analytics_provider.dart';
+import 'package:money_scope/src/presentation/providers/analytics/analytics_provider.dart';
 import 'package:money_scope/src/presentation/views/dashboard/analytics/widgets/category_breakdown_card.dart';
 import 'package:money_scope/src/presentation/views/dashboard/analytics/widgets/no_analytics_data_view.dart';
 import 'package:money_scope/src/presentation/views/dashboard/analytics/widgets/spend_trend_card.dart';

@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:money_scope/src/core/config/helper/time_formater.dart';
 import 'package:money_scope/src/core/storage/database/mapper/category_icon_mapper.dart';
 import 'package:money_scope/src/domain/entities/notification_entity.dart';
-import 'package:money_scope/src/presentation/providers/notification_provider/notification_provider.dart';
+import 'package:money_scope/src/presentation/providers/notification/notification_provider.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:money_scope/src/presentation/views/widgets/no_data_available.dart';
 

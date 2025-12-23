@@ -5,7 +5,7 @@ import 'package:money_scope/src/core/storage/database/mapper/category_icon_mappe
 import 'package:money_scope/src/domain/entities/category_entity.dart';
 import 'package:money_scope/src/domain/entities/expense_entity.dart';
 import 'package:money_scope/src/presentation/providers/category_provider/category_provider.dart';
-import 'package:money_scope/src/presentation/providers/expenses_provider/expenses_provider.dart';
+import 'package:money_scope/src/presentation/providers/expenses/expenses_provider.dart';
 import 'package:money_scope/src/presentation/views/dashboard/expenses/widgets/confirm_expense_dialog.dart';
 import 'package:money_scope/src/presentation/views/dashboard/expenses/widgets/date_tile.dart';
 import 'package:uuid/uuid.dart';

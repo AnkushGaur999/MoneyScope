@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:money_scope/src/core/config/generated/assets.gen.dart';
@@ -11,20 +13,39 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  Timer? _timer;
+
   @override
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(seconds: 1)).then((value) {
+    _timer = Timer(Duration(seconds: 2), () {
       if (mounted) context.goNamed(AppRoutes.home);
     });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    _timer = null;
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Assets.images.moneyScope.image(width: 180, height: 180),
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(8)
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: Assets.images.moneyScope.image(
+            width: 180,
+            height: 180,
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }

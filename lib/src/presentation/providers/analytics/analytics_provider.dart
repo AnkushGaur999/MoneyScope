@@ -2,8 +2,8 @@ import 'package:money_scope/src/data/repositories/analytics_repository.dart';
 import 'package:money_scope/src/domain/entities/category_spent_entity.dart';
 import 'package:money_scope/src/domain/entities/daily_spent_entity.dart';
 import 'package:money_scope/src/domain/repositories/analytics_repository_impl.dart';
-import 'package:money_scope/src/presentation/providers/analytics_provider/analytics_state.dart';
-import 'package:money_scope/src/presentation/providers/database_provider/database_provider.dart';
+import 'package:money_scope/src/presentation/providers/analytics/analytics_state.dart';
+import 'package:money_scope/src/presentation/providers/database/database_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'analytics_provider.g.dart';

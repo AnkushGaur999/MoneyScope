@@ -4,11 +4,11 @@ import 'package:money_scope/src/domain/entities/expense_entity.dart';
 import 'package:money_scope/src/domain/entities/expense_with_category.dart';
 import 'package:money_scope/src/domain/entities/notification_entity.dart';
 import 'package:money_scope/src/domain/repositories/expenses_repository_impl.dart';
-import 'package:money_scope/src/presentation/providers/analytics_provider/analytics_provider.dart';
+import 'package:money_scope/src/presentation/providers/analytics/analytics_provider.dart';
 import 'package:money_scope/src/presentation/providers/category_provider/category_provider.dart';
-import 'package:money_scope/src/presentation/providers/database_provider/database_provider.dart';
-import 'package:money_scope/src/presentation/providers/home_provider/home_provider.dart';
-import 'package:money_scope/src/presentation/providers/notification_provider/notification_provider.dart';
+import 'package:money_scope/src/presentation/providers/database/database_provider.dart';
+import 'package:money_scope/src/presentation/providers/home/home_provider.dart';
+import 'package:money_scope/src/presentation/providers/notification/notification_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 

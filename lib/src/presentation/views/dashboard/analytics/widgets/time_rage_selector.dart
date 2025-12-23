@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:money_scope/src/presentation/providers/analytics_provider/analytics_provider.dart';
+import 'package:money_scope/src/presentation/providers/analytics/analytics_provider.dart';
 
 class TimeRangeSelector extends StatelessWidget {
   const TimeRangeSelector({super.key});

@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:money_scope/src/core/config/helper/time_formater.dart';
 import 'package:money_scope/src/core/constants/app_routes.dart';
 import 'package:money_scope/src/core/storage/database/mapper/category_icon_mapper.dart';
-import 'package:money_scope/src/presentation/providers/expenses_provider/expenses_provider.dart';
+import 'package:money_scope/src/presentation/providers/expenses/expenses_provider.dart';
 import 'package:money_scope/src/presentation/views/dashboard/expenses/widgets/no_expenses_view.dart';
 import 'package:money_scope/src/presentation/views/dashboard/home/widgets/month_selector.dart';
 

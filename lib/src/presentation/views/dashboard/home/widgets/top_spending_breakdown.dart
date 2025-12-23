@@ -48,8 +48,8 @@ class TopSpendingBreakdown extends StatelessWidget {
                 ),
 
 
-                expenseList.isNotEmpty
-                    ? Column(
+               if( expenseList.isNotEmpty
+               ) Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         mainAxisSize: MainAxisSize.max,
@@ -60,12 +60,6 @@ class TopSpendingBreakdown extends StatelessWidget {
                             Color(expenseList[i].color),
                             expenseList[i].name,
                           ),
-                        ),
-                      )
-                    : Text(
-                        'No Data Available',
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
                         ),
                       ),
               ],

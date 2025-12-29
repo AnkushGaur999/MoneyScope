@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart';
 import 'package:money_scope/src/core/storage/database/app_database.dart';
 import 'package:money_scope/src/core/storage/database/dao/notification_dao.dart';
-import 'package:money_scope/src/data/repositories/notification_repository.dart';
+import 'package:money_scope/src/domain/repositories/notification_repository.dart';
 import 'package:money_scope/src/domain/entities/notification_entity.dart';
 
 class NotificationRepositoryImpl extends NotificationRepository {

@@ -1,6 +1,6 @@
-import 'package:money_scope/src/data/repositories/categories_repository.dart';
+import 'package:money_scope/src/domain/repositories/categories_repository.dart';
 import 'package:money_scope/src/domain/entities/category_entity.dart';
-import 'package:money_scope/src/domain/repositories/category_repository_impl.dart';
+import 'package:money_scope/src/data/repositories/category_repository_impl.dart';
 import 'package:money_scope/src/presentation/providers/database/database_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

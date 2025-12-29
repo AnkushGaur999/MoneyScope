@@ -33,6 +33,7 @@ dependencies:
   flutter_local_notifications: ^19.5.0
   permission_handler: ^12.0.1
   infinite_scroll_pagination: ^5.1.1
+ 
 
 
 dev_dependencies:

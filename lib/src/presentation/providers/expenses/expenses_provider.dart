@@ -1,9 +1,9 @@
 import 'package:money_scope/src/core/services/notification_services.dart';
-import 'package:money_scope/src/data/repositories/expenses_repository.dart';
+import 'package:money_scope/src/domain/repositories/expenses_repository.dart';
 import 'package:money_scope/src/domain/entities/expense_entity.dart';
 import 'package:money_scope/src/domain/entities/expense_with_category.dart';
 import 'package:money_scope/src/domain/entities/notification_entity.dart';
-import 'package:money_scope/src/domain/repositories/expenses_repository_impl.dart';
+import 'package:money_scope/src/data/repositories/expenses_repository_impl.dart';
 import 'package:money_scope/src/presentation/providers/analytics/analytics_provider.dart';
 import 'package:money_scope/src/presentation/providers/category_provider/category_provider.dart';
 import 'package:money_scope/src/presentation/providers/database/database_provider.dart';

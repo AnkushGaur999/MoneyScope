@@ -1,5 +1,5 @@
 import 'package:money_scope/src/core/storage/database/dao/categories_dao.dart';
-import 'package:money_scope/src/data/repositories/categories_repository.dart';
+import 'package:money_scope/src/domain/repositories/categories_repository.dart';
 import 'package:money_scope/src/domain/entities/category_entity.dart';
 
 class CategoryRepositoryImpl implements CategoryRepository {

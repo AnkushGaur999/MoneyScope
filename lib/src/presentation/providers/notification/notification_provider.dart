@@ -1,6 +1,6 @@
-import 'package:money_scope/src/data/repositories/notification_repository.dart';
+import 'package:money_scope/src/domain/repositories/notification_repository.dart';
 import 'package:money_scope/src/domain/entities/notification_entity.dart';
-import 'package:money_scope/src/domain/repositories/notification_repository_impl.dart';
+import 'package:money_scope/src/data/repositories/notification_repository_impl.dart';
 import 'package:money_scope/src/presentation/providers/database/database_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

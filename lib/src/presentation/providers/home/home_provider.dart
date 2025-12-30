@@ -11,7 +11,7 @@ part 'home_provider.g.dart';
 @riverpod
 HomeRepository homeRepository(Ref ref) {
   final db = ref.watch(databaseProvider);
-  return HomeRepositoryImpl(expensesDao: db.expensesDao);
+  return HomeRepositoryImpl(expensesDao: db.expensesDao, userDao: db.userDao);
 }
 
 @riverpod
@@ -46,20 +46,22 @@ class Home extends _$Home {
     final results = await Future.wait([
       repo.totalSpend(lStart, lEnd),
       repo.totalSpend(start, end),
+      repo.monthlyBudget(),
       repo.topSpending(start, end, 3),
       repo.getRecentExpense(start: start, end: end, limit: 3),
     ]);
 
     final lastMonthTotalSpent = results[0] as double;
     final currentMonthTotalSpent = results[1] as double;
-    final expenseList = results[2] as List<CategorySpentEntity>;
-    final recentExpense = results[3] as List<ExpenseWithCategory>;
+    final monthlyBudget = results[2] as double;
+    final expenseList = results[3] as List<CategorySpentEntity>;
+    final recentExpense = results[4] as List<ExpenseWithCategory>;
 
     return HomeState(
       lastMonthTotalSpent: lastMonthTotalSpent,
       currentMonthTotalSpent: currentMonthTotalSpent,
-      totalAmount: currentMonthTotalSpent,
-      expenseList: expenseList,
+      monthlyBudget: monthlyBudget,
+      topExpenseList: expenseList,
       recentExpense: recentExpense,
     );
 

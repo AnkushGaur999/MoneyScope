@@ -5,15 +5,15 @@ class HomeState {
   final double lastMonthTotalSpent;
   final double currentMonthTotalSpent;
 
-  final double totalAmount;
-  final List<CategorySpentEntity> expenseList;
+  final double monthlyBudget;
+  final List<CategorySpentEntity> topExpenseList;
   final List<ExpenseWithCategory> recentExpense;
 
   const HomeState({
     required this.lastMonthTotalSpent,
     required this.currentMonthTotalSpent,
-    required this.totalAmount,
-    required this.expenseList,
+    required this.monthlyBudget,
+    required this.topExpenseList,
     required this.recentExpense,
   });
 }

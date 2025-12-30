@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:money_scope/src/core/config/generated/assets.gen.dart';
+import 'package:money_scope/src/core/constants/app_routes.dart';
 import 'package:money_scope/src/domain/entities/user_entity.dart';
 import 'package:money_scope/src/presentation/providers/user/user_provider.dart';
 import 'package:uuid/uuid.dart';
@@ -208,6 +210,8 @@ class _UserRegistrationPageState extends ConsumerState<UserRegistrationPage> {
                             empType: _selectedEmploymentType!,
                           ),
                         );
+
+                    context.goNamed(AppRoutes.home);
                   },
                   child: Text("Register"),
                 ),

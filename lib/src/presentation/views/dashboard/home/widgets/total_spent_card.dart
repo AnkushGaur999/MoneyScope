@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class TotalSpentCard extends StatelessWidget {
   final double spentAmount;
-  final double totalAmount;
+  final double totalMonthlyBudget;
 
   const TotalSpentCard({
     super.key,
     required this.spentAmount,
-    required this.totalAmount,
+    required this.totalMonthlyBudget,
   });
 
   @override
@@ -25,18 +25,6 @@ class TotalSpentCard extends StatelessWidget {
                 context,
               ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
-            // LinearProgressIndicator(
-            //   value: spentAmount / totalAmount,
-            //   minHeight: 10,
-            //   borderRadius: BorderRadius.circular(12),
-            //   backgroundColor: Theme.of(
-            //     context,
-            //   ).colorScheme.surfaceContainerHighest,
-            //   valueColor: AlwaysStoppedAnimation(
-            //     Theme.of(context).colorScheme.secondary,
-            //   ),
-            // ),
-
             Container(
               height: 12,
               width: double.infinity,
@@ -46,7 +34,7 @@ class TotalSpentCard extends StatelessWidget {
               ),
               child: FractionallySizedBox(
                 alignment: Alignment.centerLeft,
-                widthFactor:  (spentAmount / totalAmount)> 1? 1 : spentAmount / totalAmount,
+                widthFactor:  (spentAmount / totalMonthlyBudget)> 1? 1 : spentAmount / totalMonthlyBudget,
                 child: Container(
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
@@ -58,7 +46,7 @@ class TotalSpentCard extends StatelessWidget {
               ),
             ),
             Text(
-              "Budget: ₹$totalAmount - ${((spentAmount * 100) / totalAmount).toStringAsFixed(2)}%",
+              "Budget: ₹$totalMonthlyBudget - ${((spentAmount * 100) / totalMonthlyBudget).toStringAsFixed(2)}%",
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 fontSize: 14,
                 color: Colors.grey.shade700,

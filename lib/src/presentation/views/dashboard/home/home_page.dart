@@ -53,15 +53,17 @@ class _HomePageState extends ConsumerState<HomePage> {
               final List<ExpenseWithCategory> recentExpenseList =
                   data.recentExpense;
 
-              final topExpense = data.expenseList.firstOrNull;
+              final topExpense = data.topExpenseList.firstOrNull;
+
+              final totalMonthlyBudget = data.monthlyBudget;
 
               return SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TotalSpentCard(
-                      totalAmount: 500000.00,
                       spentAmount: data.currentMonthTotalSpent,
+                      totalMonthlyBudget: totalMonthlyBudget,
                     ),
 
                     InsightsCard(
@@ -71,7 +73,7 @@ class _HomePageState extends ConsumerState<HomePage> {
 
                     TopSpendingBreakdown(
                       totalAmount: currentMonthTotalAmount,
-                      expenseList: data.expenseList,
+                      expenseList: data.topExpenseList,
                     ),
 
                     RecentExpenses(recentExpenseList: recentExpenseList),

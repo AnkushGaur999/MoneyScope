@@ -1,4 +1,4 @@
-package com.example.money_scope
+package com.app.money_scope
 
 import io.flutter.embedding.android.FlutterActivity
 

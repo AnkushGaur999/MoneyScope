@@ -4,6 +4,8 @@ import 'package:money_scope/src/domain/entities/expense_with_category.dart';
 abstract class HomeRepository {
   Future<double> totalSpend(DateTime start, DateTime end);
 
+  Future<double> monthlyBudget();
+
   Future<List<CategorySpentEntity>> topSpending(
     DateTime start,
     DateTime end,

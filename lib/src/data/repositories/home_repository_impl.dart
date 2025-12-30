@@ -1,5 +1,6 @@
 import 'package:money_scope/src/core/storage/database/dao/expenses_dao.dart';
-import 'package:money_scope/src/data/repositories/home_repository.dart';
+import 'package:money_scope/src/core/storage/database/dao/user_dao.dart';
+import 'package:money_scope/src/domain/repositories/home_repository.dart';
 import 'package:money_scope/src/domain/entities/category_entity.dart';
 import 'package:money_scope/src/domain/entities/category_spent_entity.dart';
 import 'package:money_scope/src/domain/entities/expense_entity.dart';
@@ -7,8 +8,9 @@ import 'package:money_scope/src/domain/entities/expense_with_category.dart';
 
 class HomeRepositoryImpl extends HomeRepository {
   final ExpensesDao expensesDao;
+  final UserDao userDao;
 
-  HomeRepositoryImpl({required this.expensesDao});
+  HomeRepositoryImpl({required this.expensesDao, required this.userDao});
 
   /// Get Top 3 Expenses by Category in a particular time period
   @override
@@ -47,5 +49,11 @@ class HomeRepositoryImpl extends HomeRepository {
           ),
         )
         .toList();
+  }
+
+  @override
+  Future<double> monthlyBudget() async {
+    final users = await userDao.getUser();
+    return users.first.monthlyIncome;
   }
 }

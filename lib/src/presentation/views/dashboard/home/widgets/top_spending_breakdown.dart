@@ -16,8 +16,6 @@ class TopSpendingBreakdown extends StatelessWidget {
   Widget build(BuildContext context) {
     final total = expenseList.fold(0.0, (sum, item) => sum + item.total);
 
-    final theme = Theme.of(context);
-
     return  Card(
       margin: const EdgeInsets.all(10),
       child: Padding(

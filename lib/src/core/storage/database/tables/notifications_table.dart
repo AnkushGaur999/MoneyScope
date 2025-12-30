@@ -35,4 +35,7 @@ class NotificationsTable extends Table {
   TextColumn get categoryId => text().nullable()();
 
   RealColumn get amount => real().nullable()();
+
+  @override
+  Set<Column<Object>>? get primaryKey => {id};
 }

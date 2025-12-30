@@ -987,7 +987,7 @@ class $NotificationsTableTable extends NotificationsTable
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => const {};
+  Set<GeneratedColumn> get $primaryKey => {id};
   @override
   NotificationsTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
@@ -1415,6 +1415,532 @@ class NotificationsTableCompanion
   }
 }
 
+class $UsersTableTable extends UsersTable
+    with TableInfo<$UsersTableTable, UsersTableData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UsersTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _fullNameMeta = const VerificationMeta(
+    'fullName',
+  );
+  @override
+  late final GeneratedColumn<String> fullName = GeneratedColumn<String>(
+    'full_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _emailMeta = const VerificationMeta('email');
+  @override
+  late final GeneratedColumn<String> email = GeneratedColumn<String>(
+    'email',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _countryMeta = const VerificationMeta(
+    'country',
+  );
+  @override
+  late final GeneratedColumn<String> country = GeneratedColumn<String>(
+    'country',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _phoneMeta = const VerificationMeta('phone');
+  @override
+  late final GeneratedColumn<String> phone = GeneratedColumn<String>(
+    'phone',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _monthlyIncomeMeta = const VerificationMeta(
+    'monthlyIncome',
+  );
+  @override
+  late final GeneratedColumn<double> monthlyIncome = GeneratedColumn<double>(
+    'monthly_income',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _employmentTypeMeta = const VerificationMeta(
+    'employmentType',
+  );
+  @override
+  late final GeneratedColumn<String> employmentType = GeneratedColumn<String>(
+    'employment_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _profileImagePathMeta = const VerificationMeta(
+    'profileImagePath',
+  );
+  @override
+  late final GeneratedColumn<String> profileImagePath = GeneratedColumn<String>(
+    'profile_image_path',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    fullName,
+    email,
+    country,
+    phone,
+    monthlyIncome,
+    employmentType,
+    profileImagePath,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'users_table';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UsersTableData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('full_name')) {
+      context.handle(
+        _fullNameMeta,
+        fullName.isAcceptableOrUnknown(data['full_name']!, _fullNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_fullNameMeta);
+    }
+    if (data.containsKey('email')) {
+      context.handle(
+        _emailMeta,
+        email.isAcceptableOrUnknown(data['email']!, _emailMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_emailMeta);
+    }
+    if (data.containsKey('country')) {
+      context.handle(
+        _countryMeta,
+        country.isAcceptableOrUnknown(data['country']!, _countryMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_countryMeta);
+    }
+    if (data.containsKey('phone')) {
+      context.handle(
+        _phoneMeta,
+        phone.isAcceptableOrUnknown(data['phone']!, _phoneMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_phoneMeta);
+    }
+    if (data.containsKey('monthly_income')) {
+      context.handle(
+        _monthlyIncomeMeta,
+        monthlyIncome.isAcceptableOrUnknown(
+          data['monthly_income']!,
+          _monthlyIncomeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_monthlyIncomeMeta);
+    }
+    if (data.containsKey('employment_type')) {
+      context.handle(
+        _employmentTypeMeta,
+        employmentType.isAcceptableOrUnknown(
+          data['employment_type']!,
+          _employmentTypeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_employmentTypeMeta);
+    }
+    if (data.containsKey('profile_image_path')) {
+      context.handle(
+        _profileImagePathMeta,
+        profileImagePath.isAcceptableOrUnknown(
+          data['profile_image_path']!,
+          _profileImagePathMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  UsersTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UsersTableData(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      fullName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}full_name'],
+      )!,
+      email: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}email'],
+      )!,
+      country: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}country'],
+      )!,
+      phone: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone'],
+      )!,
+      monthlyIncome: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}monthly_income'],
+      )!,
+      employmentType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}employment_type'],
+      )!,
+      profileImagePath: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}profile_image_path'],
+      ),
+    );
+  }
+
+  @override
+  $UsersTableTable createAlias(String alias) {
+    return $UsersTableTable(attachedDatabase, alias);
+  }
+}
+
+class UsersTableData extends DataClass implements Insertable<UsersTableData> {
+  final String id;
+  final String fullName;
+  final String email;
+  final String country;
+  final String phone;
+  final double monthlyIncome;
+  final String employmentType;
+  final String? profileImagePath;
+  const UsersTableData({
+    required this.id,
+    required this.fullName,
+    required this.email,
+    required this.country,
+    required this.phone,
+    required this.monthlyIncome,
+    required this.employmentType,
+    this.profileImagePath,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['full_name'] = Variable<String>(fullName);
+    map['email'] = Variable<String>(email);
+    map['country'] = Variable<String>(country);
+    map['phone'] = Variable<String>(phone);
+    map['monthly_income'] = Variable<double>(monthlyIncome);
+    map['employment_type'] = Variable<String>(employmentType);
+    if (!nullToAbsent || profileImagePath != null) {
+      map['profile_image_path'] = Variable<String>(profileImagePath);
+    }
+    return map;
+  }
+
+  UsersTableCompanion toCompanion(bool nullToAbsent) {
+    return UsersTableCompanion(
+      id: Value(id),
+      fullName: Value(fullName),
+      email: Value(email),
+      country: Value(country),
+      phone: Value(phone),
+      monthlyIncome: Value(monthlyIncome),
+      employmentType: Value(employmentType),
+      profileImagePath: profileImagePath == null && nullToAbsent
+          ? const Value.absent()
+          : Value(profileImagePath),
+    );
+  }
+
+  factory UsersTableData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UsersTableData(
+      id: serializer.fromJson<String>(json['id']),
+      fullName: serializer.fromJson<String>(json['fullName']),
+      email: serializer.fromJson<String>(json['email']),
+      country: serializer.fromJson<String>(json['country']),
+      phone: serializer.fromJson<String>(json['phone']),
+      monthlyIncome: serializer.fromJson<double>(json['monthlyIncome']),
+      employmentType: serializer.fromJson<String>(json['employmentType']),
+      profileImagePath: serializer.fromJson<String?>(json['profileImagePath']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'fullName': serializer.toJson<String>(fullName),
+      'email': serializer.toJson<String>(email),
+      'country': serializer.toJson<String>(country),
+      'phone': serializer.toJson<String>(phone),
+      'monthlyIncome': serializer.toJson<double>(monthlyIncome),
+      'employmentType': serializer.toJson<String>(employmentType),
+      'profileImagePath': serializer.toJson<String?>(profileImagePath),
+    };
+  }
+
+  UsersTableData copyWith({
+    String? id,
+    String? fullName,
+    String? email,
+    String? country,
+    String? phone,
+    double? monthlyIncome,
+    String? employmentType,
+    Value<String?> profileImagePath = const Value.absent(),
+  }) => UsersTableData(
+    id: id ?? this.id,
+    fullName: fullName ?? this.fullName,
+    email: email ?? this.email,
+    country: country ?? this.country,
+    phone: phone ?? this.phone,
+    monthlyIncome: monthlyIncome ?? this.monthlyIncome,
+    employmentType: employmentType ?? this.employmentType,
+    profileImagePath: profileImagePath.present
+        ? profileImagePath.value
+        : this.profileImagePath,
+  );
+  UsersTableData copyWithCompanion(UsersTableCompanion data) {
+    return UsersTableData(
+      id: data.id.present ? data.id.value : this.id,
+      fullName: data.fullName.present ? data.fullName.value : this.fullName,
+      email: data.email.present ? data.email.value : this.email,
+      country: data.country.present ? data.country.value : this.country,
+      phone: data.phone.present ? data.phone.value : this.phone,
+      monthlyIncome: data.monthlyIncome.present
+          ? data.monthlyIncome.value
+          : this.monthlyIncome,
+      employmentType: data.employmentType.present
+          ? data.employmentType.value
+          : this.employmentType,
+      profileImagePath: data.profileImagePath.present
+          ? data.profileImagePath.value
+          : this.profileImagePath,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UsersTableData(')
+          ..write('id: $id, ')
+          ..write('fullName: $fullName, ')
+          ..write('email: $email, ')
+          ..write('country: $country, ')
+          ..write('phone: $phone, ')
+          ..write('monthlyIncome: $monthlyIncome, ')
+          ..write('employmentType: $employmentType, ')
+          ..write('profileImagePath: $profileImagePath')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    fullName,
+    email,
+    country,
+    phone,
+    monthlyIncome,
+    employmentType,
+    profileImagePath,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UsersTableData &&
+          other.id == this.id &&
+          other.fullName == this.fullName &&
+          other.email == this.email &&
+          other.country == this.country &&
+          other.phone == this.phone &&
+          other.monthlyIncome == this.monthlyIncome &&
+          other.employmentType == this.employmentType &&
+          other.profileImagePath == this.profileImagePath);
+}
+
+class UsersTableCompanion extends UpdateCompanion<UsersTableData> {
+  final Value<String> id;
+  final Value<String> fullName;
+  final Value<String> email;
+  final Value<String> country;
+  final Value<String> phone;
+  final Value<double> monthlyIncome;
+  final Value<String> employmentType;
+  final Value<String?> profileImagePath;
+  final Value<int> rowid;
+  const UsersTableCompanion({
+    this.id = const Value.absent(),
+    this.fullName = const Value.absent(),
+    this.email = const Value.absent(),
+    this.country = const Value.absent(),
+    this.phone = const Value.absent(),
+    this.monthlyIncome = const Value.absent(),
+    this.employmentType = const Value.absent(),
+    this.profileImagePath = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  UsersTableCompanion.insert({
+    required String id,
+    required String fullName,
+    required String email,
+    required String country,
+    required String phone,
+    required double monthlyIncome,
+    required String employmentType,
+    this.profileImagePath = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       fullName = Value(fullName),
+       email = Value(email),
+       country = Value(country),
+       phone = Value(phone),
+       monthlyIncome = Value(monthlyIncome),
+       employmentType = Value(employmentType);
+  static Insertable<UsersTableData> custom({
+    Expression<String>? id,
+    Expression<String>? fullName,
+    Expression<String>? email,
+    Expression<String>? country,
+    Expression<String>? phone,
+    Expression<double>? monthlyIncome,
+    Expression<String>? employmentType,
+    Expression<String>? profileImagePath,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (fullName != null) 'full_name': fullName,
+      if (email != null) 'email': email,
+      if (country != null) 'country': country,
+      if (phone != null) 'phone': phone,
+      if (monthlyIncome != null) 'monthly_income': monthlyIncome,
+      if (employmentType != null) 'employment_type': employmentType,
+      if (profileImagePath != null) 'profile_image_path': profileImagePath,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  UsersTableCompanion copyWith({
+    Value<String>? id,
+    Value<String>? fullName,
+    Value<String>? email,
+    Value<String>? country,
+    Value<String>? phone,
+    Value<double>? monthlyIncome,
+    Value<String>? employmentType,
+    Value<String?>? profileImagePath,
+    Value<int>? rowid,
+  }) {
+    return UsersTableCompanion(
+      id: id ?? this.id,
+      fullName: fullName ?? this.fullName,
+      email: email ?? this.email,
+      country: country ?? this.country,
+      phone: phone ?? this.phone,
+      monthlyIncome: monthlyIncome ?? this.monthlyIncome,
+      employmentType: employmentType ?? this.employmentType,
+      profileImagePath: profileImagePath ?? this.profileImagePath,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (fullName.present) {
+      map['full_name'] = Variable<String>(fullName.value);
+    }
+    if (email.present) {
+      map['email'] = Variable<String>(email.value);
+    }
+    if (country.present) {
+      map['country'] = Variable<String>(country.value);
+    }
+    if (phone.present) {
+      map['phone'] = Variable<String>(phone.value);
+    }
+    if (monthlyIncome.present) {
+      map['monthly_income'] = Variable<double>(monthlyIncome.value);
+    }
+    if (employmentType.present) {
+      map['employment_type'] = Variable<String>(employmentType.value);
+    }
+    if (profileImagePath.present) {
+      map['profile_image_path'] = Variable<String>(profileImagePath.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UsersTableCompanion(')
+          ..write('id: $id, ')
+          ..write('fullName: $fullName, ')
+          ..write('email: $email, ')
+          ..write('country: $country, ')
+          ..write('phone: $phone, ')
+          ..write('monthlyIncome: $monthlyIncome, ')
+          ..write('employmentType: $employmentType, ')
+          ..write('profileImagePath: $profileImagePath, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -1424,12 +1950,14 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $ExpensesTableTable expensesTable = $ExpensesTableTable(this);
   late final $NotificationsTableTable notificationsTable =
       $NotificationsTableTable(this);
+  late final $UsersTableTable usersTable = $UsersTableTable(this);
   late final ExpensesDao expensesDao = ExpensesDao(this as AppDatabase);
   late final CategoriesDao categoriesDao = CategoriesDao(this as AppDatabase);
   late final AnalyticsDao analyticsDao = AnalyticsDao(this as AppDatabase);
   late final NotificationDao notificationDao = NotificationDao(
     this as AppDatabase,
   );
+  late final UserDao userDao = UserDao(this as AppDatabase);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -1438,6 +1966,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     categoriesTable,
     expensesTable,
     notificationsTable,
+    usersTable,
   ];
 }
 
@@ -2207,6 +2736,269 @@ typedef $$NotificationsTableTableProcessedTableManager =
       NotificationsTableData,
       PrefetchHooks Function()
     >;
+typedef $$UsersTableTableCreateCompanionBuilder =
+    UsersTableCompanion Function({
+      required String id,
+      required String fullName,
+      required String email,
+      required String country,
+      required String phone,
+      required double monthlyIncome,
+      required String employmentType,
+      Value<String?> profileImagePath,
+      Value<int> rowid,
+    });
+typedef $$UsersTableTableUpdateCompanionBuilder =
+    UsersTableCompanion Function({
+      Value<String> id,
+      Value<String> fullName,
+      Value<String> email,
+      Value<String> country,
+      Value<String> phone,
+      Value<double> monthlyIncome,
+      Value<String> employmentType,
+      Value<String?> profileImagePath,
+      Value<int> rowid,
+    });
+
+class $$UsersTableTableFilterComposer
+    extends Composer<_$AppDatabase, $UsersTableTable> {
+  $$UsersTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get fullName => $composableBuilder(
+    column: $table.fullName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get email => $composableBuilder(
+    column: $table.email,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get country => $composableBuilder(
+    column: $table.country,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get phone => $composableBuilder(
+    column: $table.phone,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get monthlyIncome => $composableBuilder(
+    column: $table.monthlyIncome,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get employmentType => $composableBuilder(
+    column: $table.employmentType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get profileImagePath => $composableBuilder(
+    column: $table.profileImagePath,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$UsersTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $UsersTableTable> {
+  $$UsersTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get fullName => $composableBuilder(
+    column: $table.fullName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get email => $composableBuilder(
+    column: $table.email,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get country => $composableBuilder(
+    column: $table.country,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get phone => $composableBuilder(
+    column: $table.phone,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get monthlyIncome => $composableBuilder(
+    column: $table.monthlyIncome,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get employmentType => $composableBuilder(
+    column: $table.employmentType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get profileImagePath => $composableBuilder(
+    column: $table.profileImagePath,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UsersTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $UsersTableTable> {
+  $$UsersTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get fullName =>
+      $composableBuilder(column: $table.fullName, builder: (column) => column);
+
+  GeneratedColumn<String> get email =>
+      $composableBuilder(column: $table.email, builder: (column) => column);
+
+  GeneratedColumn<String> get country =>
+      $composableBuilder(column: $table.country, builder: (column) => column);
+
+  GeneratedColumn<String> get phone =>
+      $composableBuilder(column: $table.phone, builder: (column) => column);
+
+  GeneratedColumn<double> get monthlyIncome => $composableBuilder(
+    column: $table.monthlyIncome,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get employmentType => $composableBuilder(
+    column: $table.employmentType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get profileImagePath => $composableBuilder(
+    column: $table.profileImagePath,
+    builder: (column) => column,
+  );
+}
+
+class $$UsersTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $UsersTableTable,
+          UsersTableData,
+          $$UsersTableTableFilterComposer,
+          $$UsersTableTableOrderingComposer,
+          $$UsersTableTableAnnotationComposer,
+          $$UsersTableTableCreateCompanionBuilder,
+          $$UsersTableTableUpdateCompanionBuilder,
+          (
+            UsersTableData,
+            BaseReferences<_$AppDatabase, $UsersTableTable, UsersTableData>,
+          ),
+          UsersTableData,
+          PrefetchHooks Function()
+        > {
+  $$UsersTableTableTableManager(_$AppDatabase db, $UsersTableTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$UsersTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$UsersTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$UsersTableTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> fullName = const Value.absent(),
+                Value<String> email = const Value.absent(),
+                Value<String> country = const Value.absent(),
+                Value<String> phone = const Value.absent(),
+                Value<double> monthlyIncome = const Value.absent(),
+                Value<String> employmentType = const Value.absent(),
+                Value<String?> profileImagePath = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => UsersTableCompanion(
+                id: id,
+                fullName: fullName,
+                email: email,
+                country: country,
+                phone: phone,
+                monthlyIncome: monthlyIncome,
+                employmentType: employmentType,
+                profileImagePath: profileImagePath,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String fullName,
+                required String email,
+                required String country,
+                required String phone,
+                required double monthlyIncome,
+                required String employmentType,
+                Value<String?> profileImagePath = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => UsersTableCompanion.insert(
+                id: id,
+                fullName: fullName,
+                email: email,
+                country: country,
+                phone: phone,
+                monthlyIncome: monthlyIncome,
+                employmentType: employmentType,
+                profileImagePath: profileImagePath,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UsersTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $UsersTableTable,
+      UsersTableData,
+      $$UsersTableTableFilterComposer,
+      $$UsersTableTableOrderingComposer,
+      $$UsersTableTableAnnotationComposer,
+      $$UsersTableTableCreateCompanionBuilder,
+      $$UsersTableTableUpdateCompanionBuilder,
+      (
+        UsersTableData,
+        BaseReferences<_$AppDatabase, $UsersTableTable, UsersTableData>,
+      ),
+      UsersTableData,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -2217,4 +3009,6 @@ class $AppDatabaseManager {
       $$ExpensesTableTableTableManager(_db, _db.expensesTable);
   $$NotificationsTableTableTableManager get notificationsTable =>
       $$NotificationsTableTableTableManager(_db, _db.notificationsTable);
+  $$UsersTableTableTableManager get usersTable =>
+      $$UsersTableTableTableManager(_db, _db.usersTable);
 }

@@ -1,10 +1,10 @@
 import 'package:drift/drift.dart';
 import 'package:money_scope/src/core/storage/database/app_database.dart';
 import 'package:money_scope/src/core/storage/database/dao/expenses_dao.dart';
-import 'package:money_scope/src/data/repositories/expenses_repository.dart';
 import 'package:money_scope/src/domain/entities/category_entity.dart';
 import 'package:money_scope/src/domain/entities/expense_entity.dart';
 import 'package:money_scope/src/domain/entities/expense_with_category.dart';
+import 'package:money_scope/src/domain/repositories/expenses_repository.dart';
 
 class ExpenseRepositoryImpl implements ExpenseRepository {
   final ExpensesDao dao;

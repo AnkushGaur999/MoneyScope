@@ -1,5 +1,5 @@
 import 'package:money_scope/src/core/storage/database/dao/analytics_dao.dart';
-import 'package:money_scope/src/data/repositories/analytics_repository.dart';
+import 'package:money_scope/src/domain/repositories/analytics_repository.dart';
 import 'package:money_scope/src/domain/entities/category_spent_entity.dart';
 import 'package:money_scope/src/domain/entities/daily_spent_entity.dart';
 

@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.money_scope"
+    namespace = "com.app.money_scope"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -25,7 +25,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.money_scope"
+        applicationId = "com.app.money_scope"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

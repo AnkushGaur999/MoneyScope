@@ -1,5 +1,5 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:money_scope/src/core/config/generated/assets.gen.dart';
 import 'package:money_scope/src/core/constants/app_routes.dart';
@@ -24,9 +24,9 @@ class _HomePageState extends ConsumerState<HomePage> {
       appBar: AppBar(
         leading: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          shape: CircleBorder(),
+          shape: const CircleBorder(),
           child: GestureDetector(
-             onTap: () => context.pushNamed(AppRoutes.profile),
+            onTap: () => context.pushNamed(AppRoutes.profile),
             child: Assets.images.moneyScope.image(width: 24, height: 24),
           ),
         ),
@@ -36,7 +36,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           Consumer(
             builder: (context, ref, child) {
               return IconButton(
-                onPressed: ()=> context.pushNamed(AppRoutes.notification),
+                onPressed: () => context.pushNamed(AppRoutes.notification),
                 icon: const Icon(Icons.notifications_active_rounded),
               );
             },

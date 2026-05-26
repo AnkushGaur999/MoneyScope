@@ -1,12 +1,12 @@
 import "package:flutter/material.dart";
 
 Future<void> showConfirmExpenseDialog(
-    BuildContext context, {
-      required double amount,
-      required String category,
-      String? notes,
-      required VoidCallback onConfirm,
-    }) {
+  BuildContext context, {
+  required double amount,
+  required String category,
+  String? notes,
+  required VoidCallback onConfirm,
+}) {
   return showDialog(
     context: context,
     barrierDismissible: false,
@@ -18,8 +18,8 @@ Future<void> showConfirmExpenseDialog(
           mainAxisSize: MainAxisSize.min,
           children: [
             /// Title
-            Row(
-              children: const [
+            const Row(
+              children: [
                 Icon(Icons.receipt_long, size: 28),
                 SizedBox(width: 8),
                 Text(
@@ -163,7 +163,7 @@ class _DetailRow extends StatelessWidget {
             children: [
               Text(
                 label,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
@@ -173,7 +173,7 @@ class _DetailRow extends StatelessWidget {
               const SizedBox(height: 2),
               Text(
                 value,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   color: Colors.grey,
                   fontWeight: FontWeight.w600,

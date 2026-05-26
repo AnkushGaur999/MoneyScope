@@ -30,7 +30,7 @@ class _ExpenseAnalyticsPietState extends State<ExpenseAnalyticsPieChart> {
           child: AspectRatio(
             aspectRatio: widget.aspectRatio ?? 1.3,
             child: PieChart(
-              duration: Duration(milliseconds: 800),
+              duration: const Duration(milliseconds: 800),
               curve: Curves.bounceOut,
               PieChartData(
                 pieTouchData: PieTouchData(
@@ -42,9 +42,8 @@ class _ExpenseAnalyticsPietState extends State<ExpenseAnalyticsPieChart> {
                         touchedIndex = -1;
                         return;
                       }
-                      touchedIndex = pieTouchResponse
-                          .touchedSection!
-                          .touchedSectionIndex;
+                      touchedIndex =
+                          pieTouchResponse.touchedSection!.touchedSectionIndex;
                     });
                   },
                 ),

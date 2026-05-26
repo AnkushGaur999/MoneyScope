@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:ui';
+
+import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -7,9 +8,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Profile"),
-      ),
+      appBar: AppBar(title: const Text("Profile")),
       backgroundColor: const Color(0xFF0B1220),
       body: SafeArea(
         child: Stack(
@@ -97,9 +96,9 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 6),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.verified, size: 16, color: Color(0xFF22C55E)),
                   SizedBox(width: 6),
                   Text(

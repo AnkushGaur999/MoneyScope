@@ -34,7 +34,7 @@ class RecentExpenses extends StatelessWidget {
               child: recentExpenseList.isNotEmpty
                   ? ListView.separated(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) => _ExpenseTile(
                         recentExpenseList[index].category.name,
                         '₹${recentExpenseList[index].expense.amount}',
@@ -47,7 +47,7 @@ class RecentExpenses extends StatelessWidget {
                           size: 30,
                         ),
                       ),
-                      separatorBuilder: (context, index) => Divider(),
+                      separatorBuilder: (context, index) => const Divider(),
                       itemCount: recentExpenseList.length,
                     )
                   : const Center(

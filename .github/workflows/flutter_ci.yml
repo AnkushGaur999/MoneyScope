@@ -1,0 +1,49 @@
+name: Flutter CI
+
+# Trigger workflow on push or pull request to main/develop branches
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  test_and_analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Setup Java environment for Android SDK dependencies if needed
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      # Setup Flutter Environment
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          # cache: true # Optional: speeds up builds
+
+      # Get dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Optional: Run build_runner if you are using Riverpod, Drift, or Freezed
+      # - name: Run Build Runner
+      #   run: dart run build_runner build --delete-conflicting-outputs
+
+      # Check for Dart/Flutter formatting
+      - name: Verify formatting
+        run: dart format --output=none --set-exit-if-changed .
+
+      # Analyze the code for warnings/errors
+      - name: Analyze project source
+        run: flutter analyze
+
+      # Run all unit and widget tests
+      - name: Run tests
+        run: flutter test

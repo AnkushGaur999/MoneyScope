@@ -10,10 +10,12 @@ class FirstPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Assets.images.moneyScope.image(),
-        Text("Toke Control Of\nYour Finances"),
-        Row(children: [
-        //  Icon(Icons.financ)
-        ],)
+        const Text("Toke Control Of\nYour Finances"),
+        const Row(
+          children: [
+            //  Icon(Icons.financ)
+          ],
+        ),
       ],
     );
   }

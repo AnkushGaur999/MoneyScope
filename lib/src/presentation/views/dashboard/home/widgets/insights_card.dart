@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:money_scope/src/domain/entities/category_spent_entity.dart';
 
-
 class InsightsCard extends StatelessWidget {
   final CategorySpentEntity? topExpense;
   final double? totalSpent;
@@ -28,7 +27,6 @@ class InsightsCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 1,
           children: [
-
             Text(
               "Insights",
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
@@ -39,7 +37,10 @@ class InsightsCard extends StatelessWidget {
 
             const Divider(),
             ListTile(
-              leading: Icon(Icons.insights_rounded, color: Colors.blueAccent),
+              leading: const Icon(
+                Icons.insights_rounded,
+                color: Colors.blueAccent,
+              ),
               title: RichText(
                 text: TextSpan(
                   style: textTheme.titleMedium,

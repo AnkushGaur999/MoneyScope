@@ -49,12 +49,12 @@ class _UserRegistrationPageState extends ConsumerState<UserRegistrationPage> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(24),
+          padding: const EdgeInsets.all(24),
           child: Column(
             spacing: 10,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Center(
                 child: CircleAvatar(
                   radius: 52,
@@ -71,7 +71,7 @@ class _UserRegistrationPageState extends ConsumerState<UserRegistrationPage> {
                 ),
               ),
 
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
 
               Text(
                 "Full Name",
@@ -83,7 +83,9 @@ class _UserRegistrationPageState extends ConsumerState<UserRegistrationPage> {
                 controller: _nameController,
                 keyboardType: TextInputType.name,
                 textCapitalization: TextCapitalization.words,
-                decoration: InputDecoration(prefixIcon: Icon(Icons.person)),
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.person),
+                ),
               ),
 
               Text(
@@ -95,7 +97,7 @@ class _UserRegistrationPageState extends ConsumerState<UserRegistrationPage> {
               TextFormField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.email_rounded),
                 ),
               ),
@@ -109,7 +111,7 @@ class _UserRegistrationPageState extends ConsumerState<UserRegistrationPage> {
 
               DropdownButtonFormField(
                 initialValue: _selectedCountry,
-                hint: Text("Select Country"),
+                hint: const Text("Select Country"),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -138,7 +140,7 @@ class _UserRegistrationPageState extends ConsumerState<UserRegistrationPage> {
                 controller: _mobileController,
                 keyboardType: TextInputType.number,
                 maxLength: 10,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   counter: Offstage(),
                   prefixIcon: Icon(Icons.phone_android_rounded),
                 ),
@@ -154,7 +156,7 @@ class _UserRegistrationPageState extends ConsumerState<UserRegistrationPage> {
                 controller: _incomeController,
                 keyboardType: TextInputType.number,
                 maxLength: 10,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   counter: Offstage(),
                   prefixIcon: Icon(Icons.money),
                 ),
@@ -169,7 +171,7 @@ class _UserRegistrationPageState extends ConsumerState<UserRegistrationPage> {
 
               DropdownButtonFormField(
                 initialValue: _selectedEmploymentType,
-                hint: Text("Select Employment Type"),
+                hint: const Text("Select Employment Type"),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -192,7 +194,7 @@ class _UserRegistrationPageState extends ConsumerState<UserRegistrationPage> {
 
               Center(
                 child: FilledButton(
-                  style: ButtonStyle(
+                  style: const ButtonStyle(
                     minimumSize: WidgetStatePropertyAll(Size(360, 54)),
                     alignment: Alignment.center,
                   ),
@@ -201,7 +203,7 @@ class _UserRegistrationPageState extends ConsumerState<UserRegistrationPage> {
                         .read(userProvider.notifier)
                         .addUser(
                           UserEntity(
-                            id: Uuid().v4(),
+                            id: const Uuid().v4(),
                             name: _nameController.text,
                             email: _emailController.text,
                             phone: _mobileController.text,
@@ -213,7 +215,7 @@ class _UserRegistrationPageState extends ConsumerState<UserRegistrationPage> {
 
                     context.goNamed(AppRoutes.home);
                   },
-                  child: Text("Register"),
+                  child: const Text("Register"),
                 ),
               ),
             ],

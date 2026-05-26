@@ -9,8 +9,6 @@ import 'package:money_scope/src/presentation/providers/expenses/expenses_provide
 import 'package:money_scope/src/presentation/views/dashboard/expenses/widgets/no_expenses_view.dart';
 import 'package:money_scope/src/presentation/views/dashboard/home/widgets/month_selector.dart';
 
-
-
 class ExpensesPage extends ConsumerStatefulWidget {
   const ExpensesPage({super.key});
 
@@ -86,7 +84,7 @@ class _ExpensesPageState extends ConsumerState<ExpensesPage> {
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) =>
-                      Divider(),
+                      const Divider(),
                 );
               },
               error: (error, stacktrace) =>
@@ -99,9 +97,9 @@ class _ExpensesPageState extends ConsumerState<ExpensesPage> {
       ),
 
       floatingActionButton: FloatingActionButton(
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
         onPressed: () => context.pushNamed(AppRoutes.addExpense),
-        child: Icon(Icons.add, color: Colors.white),
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }

@@ -9,9 +9,9 @@ class NetworkClient {
   NetworkClient._private() {
     _dio = Dio()
       ..options.baseUrl = dotenv.get("BASE_URL")
-      ..options.connectTimeout = Duration(seconds: 15)
-      ..options.receiveTimeout = Duration(seconds: 15)
-      ..options.sendTimeout = Duration(seconds: 15)
+      ..options.connectTimeout = const Duration(seconds: 15)
+      ..options.receiveTimeout = const Duration(seconds: 15)
+      ..options.sendTimeout = const Duration(seconds: 15)
       ..options.headers = {
         "authorization": "Bearer weionjdiorenjw8wbuhewh289hhuieinadn",
       };

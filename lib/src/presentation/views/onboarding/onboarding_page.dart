@@ -16,12 +16,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   int _pageIndex = 0;
 
   final List<Widget> _pages = [
-     const FirstPage(),
+    const FirstPage(),
     const Center(child: Text("Page 2")),
     const Center(child: Text("Page 2")),
   ];
-
-
 
   void _onPageChanged(int index) {
     setState(() {
@@ -43,19 +41,22 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
             ),
           ),
 
-         if(_pageIndex != 0) Positioned(
-            left: 20,
-            bottom: 60,
-            child: TextButton(onPressed: () {}, child: Text("Previous")),
-          ),
+          if (_pageIndex != 0)
+            Positioned(
+              left: 20,
+              bottom: 60,
+              child: TextButton(
+                onPressed: () {},
+                child: const Text("Previous"),
+              ),
+            ),
           Positioned(
             right: 20,
             bottom: 60,
-            child: TextButton(onPressed: () {}, child: Text("Next")),
+            child: TextButton(onPressed: () {}, child: const Text("Next")),
           ),
         ],
       ),
     );
   }
-
 }

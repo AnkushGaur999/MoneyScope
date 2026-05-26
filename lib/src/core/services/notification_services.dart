@@ -23,9 +23,11 @@ class NotificationServices {
   }
 
   Future<void> _setUpHandler() async {
-    final androidSetting = AndroidInitializationSettings('@mipmap/ic_launcher');
+    final androidSetting = const AndroidInitializationSettings(
+      '@mipmap/ic_launcher',
+    );
 
-    final iOSSettings = DarwinInitializationSettings(
+    final iOSSettings = const DarwinInitializationSettings(
       requestAlertPermission: true,
       requestBadgePermission: true,
       requestSoundPermission: true,
@@ -46,7 +48,7 @@ class NotificationServices {
   }
 
   Future<void> _createExpenseChannel() async {
-    final expenseChannel = AndroidNotificationChannel(
+    final expenseChannel = const AndroidNotificationChannel(
       "expense_1",
       "Expense",
       description: "Get expense updates from your app",
@@ -65,7 +67,7 @@ class NotificationServices {
     required String title,
     required String body,
   }) async {
-    final android = AndroidNotificationDetails(
+    final android = const AndroidNotificationDetails(
       "expense_1",
       "Expense",
       icon: '@mipmap/ic_launcher',
@@ -73,7 +75,7 @@ class NotificationServices {
       priority: Priority.high,
     );
 
-    final iOS = DarwinNotificationDetails(
+    final iOS = const DarwinNotificationDetails(
       presentAlert: true,
       presentBadge: true,
       presentBanner: true,

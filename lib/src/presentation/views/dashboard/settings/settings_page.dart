@@ -15,9 +15,9 @@ class SettingsPage extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      appBar: AppBar(title: Text("Settings"), centerTitle: true),
+      appBar: AppBar(title: const Text("Settings"), centerTitle: true),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 18),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 4,
@@ -78,7 +78,7 @@ class SettingsPage extends StatelessWidget {
                     height: 24,
                     child: Switch.adaptive(
                       activeTrackColor: colors.secondary,
-                      thumbColor: WidgetStatePropertyAll(Colors.white),
+                      thumbColor: const WidgetStatePropertyAll(Colors.white),
                       value: isLight,
                       onChanged: (bool value) {
                         ref.read(appThemeProvider.notifier).toggleTheme();
@@ -164,7 +164,7 @@ class SettingsPage extends StatelessWidget {
                 height: 24,
                 child: Switch.adaptive(
                   activeTrackColor: colors.secondary,
-                  thumbColor: WidgetStatePropertyAll(Colors.white),
+                  thumbColor: const WidgetStatePropertyAll(Colors.white),
                   value: true,
                   onChanged: (bool value) {},
                 ),
@@ -183,7 +183,7 @@ class SettingsPage extends StatelessWidget {
               label: "Delete All Data",
               onTap: () {},
               action: const Icon(Icons.arrow_forward_ios_rounded),
-              iconColor:  Colors.red,
+              iconColor: Colors.red,
               textColor: Colors.red,
             ),
           ],

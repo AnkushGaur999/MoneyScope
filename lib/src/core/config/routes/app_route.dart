@@ -135,7 +135,7 @@ CustomTransitionPage<T> fadeScalePage<T>({
   return CustomTransitionPage<T>(
     key: state.pageKey,
     child: child,
-    transitionDuration: Duration(milliseconds: 300),
+    transitionDuration: const Duration(milliseconds: 300),
     transitionsBuilder: (context, animation, _, child) {
       return FadeTransition(
         opacity: animation,

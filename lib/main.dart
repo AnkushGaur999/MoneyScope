@@ -1,16 +1,15 @@
-import 'package:money_scope/src/core/config/routes/app_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:money_scope/src/core/config/routes/app_route.dart';
 import 'package:money_scope/src/core/services/notification_services.dart';
 import 'package:money_scope/src/presentation/providers/theme/app_theme_provider.dart';
 
 void main() async {
-  await dotenv.load(fileName: ".env");
+  WidgetsFlutterBinding.ensureInitialized();
 
   await NotificationServices.instance.init();
 
-  runApp(ProviderScope(child: const MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends ConsumerWidget {

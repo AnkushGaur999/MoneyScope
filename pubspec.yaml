@@ -57,10 +57,7 @@ flutter:
   assets:
      - assets/icons/
      - assets/images/
-     - assets/files/
-     - assets/fonts/
      - assets/svgs/
-     - .env
 
 flutter_gen:
   output: lib/src/core/config/generated/

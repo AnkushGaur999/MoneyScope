@@ -159,7 +159,7 @@ class _InsightTile extends StatelessWidget {
       child: ListTile(
         leading: Icon(icon, color: color),
         title: Text(text),
-        trailing: Icon(Icons.insights_rounded, color: Colors.blueAccent),
+        trailing: const Icon(Icons.insights_rounded, color: Colors.blueAccent),
       ),
     );
   }

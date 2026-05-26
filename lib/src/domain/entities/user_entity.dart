@@ -18,5 +18,4 @@ class UserEntity {
     required this.empType,
     this.profileImagePath,
   });
-
 }

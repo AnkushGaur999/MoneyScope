@@ -34,7 +34,9 @@ class TotalSpentCard extends StatelessWidget {
               ),
               child: FractionallySizedBox(
                 alignment: Alignment.centerLeft,
-                widthFactor:  (spentAmount / totalMonthlyBudget)> 1? 1 : spentAmount / totalMonthlyBudget,
+                widthFactor: (spentAmount / totalMonthlyBudget) > 1
+                    ? 1
+                    : spentAmount / totalMonthlyBudget,
                 child: Container(
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(

@@ -32,7 +32,7 @@ class UserRepositoryImpl extends UserRepository {
     if (users.isNotEmpty) {
       final value = users.first;
 
-     return UserEntity(
+      return UserEntity(
         id: value.id,
         name: value.fullName,
         email: value.email,

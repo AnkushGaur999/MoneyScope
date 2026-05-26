@@ -12,7 +12,6 @@ import 'package:drift/drift.dart';
 // "amount": 250
 // "date": "2025-12-15T18:21:21.536Z",
 
-
 class NotificationsTable extends Table {
   TextColumn get id => text()();
 

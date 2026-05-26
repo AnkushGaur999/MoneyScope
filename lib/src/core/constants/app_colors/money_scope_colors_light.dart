@@ -2,13 +2,13 @@ import 'dart:ui';
 
 abstract class MoneyScopeColorsLight {
   // Core
-  static const primary = Color(0xFF1E3A8A);       // Deep Blue
+  static const primary = Color(0xFF1E3A8A); // Deep Blue
   static const onPrimary = Color(0xFFFFFFFF);
 
-  static const secondary = Color(0xFF10B981);     // Emerald Green
+  static const secondary = Color(0xFF10B981); // Emerald Green
   static const onSecondary = Color(0xFFFFFFFF);
 
-  static const tertiary = Color(0xFF3B82F6);      // Blue Accent
+  static const tertiary = Color(0xFF3B82F6); // Blue Accent
   static const onTertiary = Color(0xFFFFFFFF);
 
   // Backgrounds

@@ -5,8 +5,5 @@ class ExpenseWithCategory {
   final ExpenseEntity expense;
   final CategoryEntity category;
 
-  const ExpenseWithCategory({
-    required this.expense,
-    required this.category,
-  });
+  const ExpenseWithCategory({required this.expense, required this.category});
 }

@@ -10,7 +10,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
   @override
   Stream<List<CategoryEntity>> watchCategories() {
     return dao.watchAllCategories().map(
-          (rows) => rows.map((e) => e.toDomain()).toList(),
+      (rows) => rows.map((e) => e.toDomain()).toList(),
     );
   }
 }

@@ -23,7 +23,6 @@ class Notification extends _$Notification {
   }
 
   Future<List<NotificationEntity>> fetchData(int pageKey) async {
-
     return await repository.allNotifications(page: pageKey);
   }
 

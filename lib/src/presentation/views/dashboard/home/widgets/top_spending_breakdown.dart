@@ -16,7 +16,7 @@ class TopSpendingBreakdown extends StatelessWidget {
   Widget build(BuildContext context) {
     final total = expenseList.fold(0.0, (sum, item) => sum + item.total);
 
-    return  Card(
+    return Card(
       margin: const EdgeInsets.all(10),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -45,21 +45,20 @@ class TopSpendingBreakdown extends StatelessWidget {
                   ),
                 ),
 
-
-               if( expenseList.isNotEmpty
-               ) Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        mainAxisSize: MainAxisSize.max,
-                        spacing: 10,
-                        children: List.generate(
-                          expenseList.length,
-                          (i) => _LegendDot(
-                            Color(expenseList[i].color),
-                            expenseList[i].name,
-                          ),
-                        ),
+                if (expenseList.isNotEmpty)
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisSize: MainAxisSize.max,
+                    spacing: 10,
+                    children: List.generate(
+                      expenseList.length,
+                      (i) => _LegendDot(
+                        Color(expenseList[i].color),
+                        expenseList[i].name,
                       ),
+                    ),
+                  ),
               ],
             ),
           ],

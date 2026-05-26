@@ -12,7 +12,6 @@ abstract class HomeRepository {
     int limit,
   );
 
-
   Future<List<ExpenseWithCategory>> getRecentExpense({
     required DateTime start,
     required DateTime end,

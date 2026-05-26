@@ -7,8 +7,7 @@ class ExpensesTable extends Table {
   TextColumn get categoryId => text()();
   TextColumn get note => text().nullable()();
   DateTimeColumn get date => dateTime()();
-  BoolColumn get isRecurring =>
-      boolean().withDefault(const Constant(false))();
+  BoolColumn get isRecurring => boolean().withDefault(const Constant(false))();
 
   @override
   Set<Column> get primaryKey => {id};

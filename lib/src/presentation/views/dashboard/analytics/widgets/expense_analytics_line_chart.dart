@@ -23,7 +23,6 @@ class _ExpenseAnalyticsLineChartState extends State<ExpenseAnalyticsLineChart> {
 
   @override
   Widget build(BuildContext context) {
-
     if (widget.dailySpentItems.isEmpty) {
       return const Center(child: Text('No data'));
     }

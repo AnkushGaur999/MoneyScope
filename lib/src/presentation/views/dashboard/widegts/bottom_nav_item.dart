@@ -27,7 +27,7 @@ class BottomNavItem extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
-          borderRadius:  BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(24),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             curve: Curves.easeOut,
@@ -70,4 +70,3 @@ class BottomNavItem extends StatelessWidget {
     );
   }
 }
-

@@ -1,8 +1,6 @@
-
 import 'package:drift/drift.dart';
 
 class UsersTable extends Table {
-
   TextColumn get id => text()();
   TextColumn get fullName => text()();
   TextColumn get email => text()();
@@ -11,7 +9,6 @@ class UsersTable extends Table {
   RealColumn get monthlyIncome => real()();
   TextColumn get employmentType => text()();
   TextColumn get profileImagePath => text().nullable()();
-
 
   @override
   Set<Column<Object>>? get primaryKey => {id};

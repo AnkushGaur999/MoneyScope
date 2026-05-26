@@ -37,9 +37,7 @@ class AppDarkThemeData {
       elevation: 2,
     ),
 
-    textTheme: GoogleFonts.notoSansTextTheme(
-      ThemeData.dark().textTheme,
-    ),
+    textTheme: GoogleFonts.notoSansTextTheme(ThemeData.dark().textTheme),
 
     cardTheme: CardThemeData(
       color: MoneyScopeColorsDark.surface,
@@ -53,6 +51,5 @@ class AppDarkThemeData {
       backgroundColor: MoneyScopeColorsDark.secondary,
       foregroundColor: MoneyScopeColorsDark.onSecondary,
     ),
-
   );
 }

@@ -1,4 +1,3 @@
-
 extension StringCapitalization on String {
   String capitalize() {
     if (isEmpty) return this;

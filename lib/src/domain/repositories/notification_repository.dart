@@ -7,7 +7,7 @@ abstract class NotificationRepository {
 
   Stream<List<NotificationEntity>> watchAllNotifications();
 
-  Future<List<NotificationEntity>> allNotifications({required int page,});
+  Future<List<NotificationEntity>> allNotifications({required int page});
 
   Future<bool> updateTitle(String id, String title);
 }

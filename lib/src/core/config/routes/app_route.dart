@@ -16,7 +16,7 @@ import 'package:go_router/go_router.dart';
 class AppRoute {
   static const String _splash = "/";
   static const String _userRegistration = "/${AppRoutes.userRegistration}";
-  static const String _onboarding= "/${AppRoutes.onboarding}";
+  static const String _onboarding = "/${AppRoutes.onboarding}";
   static const String _home = "/${AppRoutes.home}";
   static const String _analytics = "/${AppRoutes.analytics}";
   static const String _expenses = "/${AppRoutes.expenses}";
@@ -40,14 +40,14 @@ class AppRoute {
         name: AppRoutes.userRegistration,
         path: _userRegistration,
         pageBuilder: (context, state) =>
-        const MaterialPage(child: UserRegistrationPage()),
+            const MaterialPage(child: UserRegistrationPage()),
       ),
 
       GoRoute(
         name: AppRoutes.onboarding,
         path: _onboarding,
         pageBuilder: (context, state) =>
-        const MaterialPage(child: OnboardingPage()),
+            const MaterialPage(child: OnboardingPage()),
       ),
 
       StatefulShellRoute.indexedStack(

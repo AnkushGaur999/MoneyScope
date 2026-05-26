@@ -17,6 +17,5 @@ class AppRoutes {
 
   static const String notification = "notification";
 
-
   static const String addExpense = "add-expense";
 }

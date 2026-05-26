@@ -58,7 +58,7 @@ class SettingsItem extends StatelessWidget {
                     ),
                   ),
 
-                  action
+                  action,
                 ],
               ),
             ],

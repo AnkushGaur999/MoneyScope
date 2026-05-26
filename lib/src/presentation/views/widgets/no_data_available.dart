@@ -11,7 +11,7 @@ class NoDataAvailable extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.all(24),
-          decoration:  BoxDecoration(
+          decoration: BoxDecoration(
             color: theme.colorScheme.primary.withValues(alpha: 0.1),
             shape: BoxShape.circle,
           ),

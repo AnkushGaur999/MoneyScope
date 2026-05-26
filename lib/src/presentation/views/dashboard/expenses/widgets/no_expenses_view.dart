@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class NoExpensesView extends StatelessWidget {
-
   const NoExpensesView({super.key});
 
   @override
@@ -48,7 +47,6 @@ class NoExpensesView extends StatelessWidget {
             ),
 
             const SizedBox(height: 24),
-
           ],
         ),
       ),

@@ -43,9 +43,7 @@ abstract class AppLightThemeData {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
     ),
 
-    textTheme: GoogleFonts.notoSansTextTheme(
-      ThemeData.light().textTheme,
-    ),
+    textTheme: GoogleFonts.notoSansTextTheme(ThemeData.light().textTheme),
 
     dividerTheme: const DividerThemeData(color: MoneyScopeColorsLight.divider),
 

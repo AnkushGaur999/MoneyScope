@@ -10,7 +10,7 @@ part of 'expenses_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(expenseRepository)
-const expenseRepositoryProvider = ExpenseRepositoryProvider._();
+final expenseRepositoryProvider = ExpenseRepositoryProvider._();
 
 final class ExpenseRepositoryProvider
     extends
@@ -20,7 +20,7 @@ final class ExpenseRepositoryProvider
           ExpenseRepository
         >
     with $Provider<ExpenseRepository> {
-  const ExpenseRepositoryProvider._()
+  ExpenseRepositoryProvider._()
     : super(
         from: null,
         argument: null,
@@ -57,11 +57,11 @@ final class ExpenseRepositoryProvider
 String _$expenseRepositoryHash() => r'c8ee1c32766a63bf5166a9b8c3432aa2d0a354ba';
 
 @ProviderFor(ExpenseSelectedMonth)
-const expenseSelectedMonthProvider = ExpenseSelectedMonthProvider._();
+final expenseSelectedMonthProvider = ExpenseSelectedMonthProvider._();
 
 final class ExpenseSelectedMonthProvider
     extends $NotifierProvider<ExpenseSelectedMonth, DateTime> {
-  const ExpenseSelectedMonthProvider._()
+  ExpenseSelectedMonthProvider._()
     : super(
         from: null,
         argument: null,
@@ -96,7 +96,6 @@ abstract class _$ExpenseSelectedMonth extends $Notifier<DateTime> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<DateTime, DateTime>;
     final element =
         ref.element
@@ -106,16 +105,16 @@ abstract class _$ExpenseSelectedMonth extends $Notifier<DateTime> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }
 
 @ProviderFor(Expense)
-const expenseProvider = ExpenseProvider._();
+final expenseProvider = ExpenseProvider._();
 
 final class ExpenseProvider
     extends $AsyncNotifierProvider<Expense, List<ExpenseWithCategory>> {
-  const ExpenseProvider._()
+  ExpenseProvider._()
     : super(
         from: null,
         argument: null,
@@ -141,7 +140,6 @@ abstract class _$Expense extends $AsyncNotifier<List<ExpenseWithCategory>> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref =
         this.ref
             as $Ref<
@@ -159,6 +157,6 @@ abstract class _$Expense extends $AsyncNotifier<List<ExpenseWithCategory>> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }

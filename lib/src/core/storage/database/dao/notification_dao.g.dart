@@ -6,4 +6,15 @@ part of 'notification_dao.dart';
 mixin _$NotificationDaoMixin on DatabaseAccessor<AppDatabase> {
   $NotificationsTableTable get notificationsTable =>
       attachedDatabase.notificationsTable;
+  NotificationDaoManager get managers => NotificationDaoManager(this);
+}
+
+class NotificationDaoManager {
+  final _$NotificationDaoMixin _db;
+  NotificationDaoManager(this._db);
+  $$NotificationsTableTableTableManager get notificationsTable =>
+      $$NotificationsTableTableTableManager(
+        _db.attachedDatabase,
+        _db.notificationsTable,
+      );
 }

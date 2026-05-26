@@ -10,10 +10,10 @@ part of 'app_theme_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(AppTheme)
-const appThemeProvider = AppThemeProvider._();
+final appThemeProvider = AppThemeProvider._();
 
 final class AppThemeProvider extends $NotifierProvider<AppTheme, ThemeState> {
-  const AppThemeProvider._()
+  AppThemeProvider._()
     : super(
         from: null,
         argument: null,
@@ -47,7 +47,6 @@ abstract class _$AppTheme extends $Notifier<ThemeState> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<ThemeState, ThemeState>;
     final element =
         ref.element
@@ -57,6 +56,6 @@ abstract class _$AppTheme extends $Notifier<ThemeState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }

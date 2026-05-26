@@ -10,7 +10,7 @@ part of 'notification_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(notificationRepository)
-const notificationRepositoryProvider = NotificationRepositoryProvider._();
+final notificationRepositoryProvider = NotificationRepositoryProvider._();
 
 final class NotificationRepositoryProvider
     extends
@@ -20,7 +20,7 @@ final class NotificationRepositoryProvider
           NotificationRepository
         >
     with $Provider<NotificationRepository> {
-  const NotificationRepositoryProvider._()
+  NotificationRepositoryProvider._()
     : super(
         from: null,
         argument: null,
@@ -58,11 +58,11 @@ String _$notificationRepositoryHash() =>
     r'e9c1f10c1838262249b0131cf1faf17fe1bd3784';
 
 @ProviderFor(Notification)
-const notificationProvider = NotificationProvider._();
+final notificationProvider = NotificationProvider._();
 
 final class NotificationProvider
     extends $AsyncNotifierProvider<Notification, void> {
-  const NotificationProvider._()
+  NotificationProvider._()
     : super(
         from: null,
         argument: null,
@@ -88,7 +88,6 @@ abstract class _$Notification extends $AsyncNotifier<void> {
   @$mustCallSuper
   @override
   void runBuild() {
-    build();
     final ref = this.ref as $Ref<AsyncValue<void>, void>;
     final element =
         ref.element
@@ -98,6 +97,6 @@ abstract class _$Notification extends $AsyncNotifier<void> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, null);
+    element.handleCreate(ref, build);
   }
 }

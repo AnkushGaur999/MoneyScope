@@ -10,11 +10,11 @@ part of 'analytics_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(AnalyticsRangeSelector)
-const analyticsRangeSelectorProvider = AnalyticsRangeSelectorProvider._();
+final analyticsRangeSelectorProvider = AnalyticsRangeSelectorProvider._();
 
 final class AnalyticsRangeSelectorProvider
     extends $NotifierProvider<AnalyticsRangeSelector, AnalyticsRange> {
-  const AnalyticsRangeSelectorProvider._()
+  AnalyticsRangeSelectorProvider._()
     : super(
         from: null,
         argument: null,
@@ -49,7 +49,6 @@ abstract class _$AnalyticsRangeSelector extends $Notifier<AnalyticsRange> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<AnalyticsRange, AnalyticsRange>;
     final element =
         ref.element
@@ -59,12 +58,12 @@ abstract class _$AnalyticsRangeSelector extends $Notifier<AnalyticsRange> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }
 
 @ProviderFor(analyticsRepository)
-const analyticsRepositoryProvider = AnalyticsRepositoryProvider._();
+final analyticsRepositoryProvider = AnalyticsRepositoryProvider._();
 
 final class AnalyticsRepositoryProvider
     extends
@@ -74,7 +73,7 @@ final class AnalyticsRepositoryProvider
           AnalyticsRepository
         >
     with $Provider<AnalyticsRepository> {
-  const AnalyticsRepositoryProvider._()
+  AnalyticsRepositoryProvider._()
     : super(
         from: null,
         argument: null,
@@ -112,11 +111,11 @@ String _$analyticsRepositoryHash() =>
     r'adf281f28d8349e84f971fbc487915a3b4882a8d';
 
 @ProviderFor(Analytics)
-const analyticsProvider = AnalyticsProvider._();
+final analyticsProvider = AnalyticsProvider._();
 
 final class AnalyticsProvider
     extends $AsyncNotifierProvider<Analytics, AnalyticsState> {
-  const AnalyticsProvider._()
+  AnalyticsProvider._()
     : super(
         from: null,
         argument: null,
@@ -142,7 +141,6 @@ abstract class _$Analytics extends $AsyncNotifier<AnalyticsState> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<AsyncValue<AnalyticsState>, AnalyticsState>;
     final element =
         ref.element
@@ -152,6 +150,6 @@ abstract class _$Analytics extends $AsyncNotifier<AnalyticsState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }

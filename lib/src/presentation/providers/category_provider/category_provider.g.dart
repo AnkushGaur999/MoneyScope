@@ -10,7 +10,7 @@ part of 'category_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(categoryRepository)
-const categoryRepositoryProvider = CategoryRepositoryProvider._();
+final categoryRepositoryProvider = CategoryRepositoryProvider._();
 
 final class CategoryRepositoryProvider
     extends
@@ -20,7 +20,7 @@ final class CategoryRepositoryProvider
           CategoryRepository
         >
     with $Provider<CategoryRepository> {
-  const CategoryRepositoryProvider._()
+  CategoryRepositoryProvider._()
     : super(
         from: null,
         argument: null,
@@ -58,11 +58,11 @@ String _$categoryRepositoryHash() =>
     r'abb6cea0fc58ff8ff4c9f50eb29c74d55466e53e';
 
 @ProviderFor(Category)
-const categoryProvider = CategoryProvider._();
+final categoryProvider = CategoryProvider._();
 
 final class CategoryProvider
     extends $StreamNotifierProvider<Category, List<CategoryEntity>> {
-  const CategoryProvider._()
+  CategoryProvider._()
     : super(
         from: null,
         argument: null,
@@ -88,7 +88,6 @@ abstract class _$Category extends $StreamNotifier<List<CategoryEntity>> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref =
         this.ref
             as $Ref<AsyncValue<List<CategoryEntity>>, List<CategoryEntity>>;
@@ -103,6 +102,6 @@ abstract class _$Category extends $StreamNotifier<List<CategoryEntity>> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }

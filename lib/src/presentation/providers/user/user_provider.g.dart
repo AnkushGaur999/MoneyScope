@@ -10,12 +10,12 @@ part of 'user_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(userRepository)
-const userRepositoryProvider = UserRepositoryProvider._();
+final userRepositoryProvider = UserRepositoryProvider._();
 
 final class UserRepositoryProvider
     extends $FunctionalProvider<UserRepository, UserRepository, UserRepository>
     with $Provider<UserRepository> {
-  const UserRepositoryProvider._()
+  UserRepositoryProvider._()
     : super(
         from: null,
         argument: null,
@@ -51,10 +51,10 @@ final class UserRepositoryProvider
 String _$userRepositoryHash() => r'07c8a5988781f4062ddecff7f9f7a39f284469dd';
 
 @ProviderFor(User)
-const userProvider = UserProvider._();
+final userProvider = UserProvider._();
 
 final class UserProvider extends $AsyncNotifierProvider<User, UserEntity?> {
-  const UserProvider._()
+  UserProvider._()
     : super(
         from: null,
         argument: null,
@@ -73,14 +73,13 @@ final class UserProvider extends $AsyncNotifierProvider<User, UserEntity?> {
   User create() => User();
 }
 
-String _$userHash() => r'2cfd70fadf55c701f002025916f4de2266fc249c';
+String _$userHash() => r'dba1b0a54e3eba9e46aad290b50c4b4c4b8c049f';
 
 abstract class _$User extends $AsyncNotifier<UserEntity?> {
   FutureOr<UserEntity?> build();
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<AsyncValue<UserEntity?>, UserEntity?>;
     final element =
         ref.element
@@ -90,6 +89,6 @@ abstract class _$User extends $AsyncNotifier<UserEntity?> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }

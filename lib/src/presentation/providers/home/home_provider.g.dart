@@ -10,12 +10,12 @@ part of 'home_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(homeRepository)
-const homeRepositoryProvider = HomeRepositoryProvider._();
+final homeRepositoryProvider = HomeRepositoryProvider._();
 
 final class HomeRepositoryProvider
     extends $FunctionalProvider<HomeRepository, HomeRepository, HomeRepository>
     with $Provider<HomeRepository> {
-  const HomeRepositoryProvider._()
+  HomeRepositoryProvider._()
     : super(
         from: null,
         argument: null,
@@ -48,13 +48,13 @@ final class HomeRepositoryProvider
   }
 }
 
-String _$homeRepositoryHash() => r'81f0bda84aeb495ea9942769f0977d6967789a24';
+String _$homeRepositoryHash() => r'7825bbed7c84e7d54ca50e944fe34621c70efbf6';
 
 @ProviderFor(Home)
-const homeProvider = HomeProvider._();
+final homeProvider = HomeProvider._();
 
 final class HomeProvider extends $AsyncNotifierProvider<Home, HomeState> {
-  const HomeProvider._()
+  HomeProvider._()
     : super(
         from: null,
         argument: null,
@@ -73,14 +73,13 @@ final class HomeProvider extends $AsyncNotifierProvider<Home, HomeState> {
   Home create() => Home();
 }
 
-String _$homeHash() => r'c8c3ba70c7750aced065f8b54d4e66167026b1ab';
+String _$homeHash() => r'766a6f6a4c5c76e451acc5987bac9743945db073';
 
 abstract class _$Home extends $AsyncNotifier<HomeState> {
   FutureOr<HomeState> build();
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<AsyncValue<HomeState>, HomeState>;
     final element =
         ref.element
@@ -90,6 +89,6 @@ abstract class _$Home extends $AsyncNotifier<HomeState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }

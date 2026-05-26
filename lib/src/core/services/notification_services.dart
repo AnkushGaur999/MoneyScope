@@ -11,7 +11,6 @@ void notificationTapBackground(NotificationResponse notificationResponse) {
 }
 
 class NotificationServices {
-
   static final NotificationServices instance = NotificationServices._private();
 
   NotificationServices._private();
@@ -38,7 +37,7 @@ class NotificationServices {
     );
 
     _notificationsPlugin.initialize(
-      initializationSettings,
+      settings: initializationSettings,
       onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
       onDidReceiveNotificationResponse: notificationTapBackground,
     );
@@ -84,10 +83,10 @@ class NotificationServices {
     final notificationDetails = NotificationDetails(android: android, iOS: iOS);
 
     _notificationsPlugin.show(
-      id,
-      title,
-      body,
-      notificationDetails,
+      id: id,
+      title: title,
+      body: body,
+      notificationDetails: notificationDetails,
       payload: body,
     );
   }

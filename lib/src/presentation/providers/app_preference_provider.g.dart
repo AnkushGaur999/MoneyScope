@@ -10,7 +10,7 @@ part of 'app_preference_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(sharedPreferences)
-const sharedPreferencesProvider = SharedPreferencesProvider._();
+final sharedPreferencesProvider = SharedPreferencesProvider._();
 
 final class SharedPreferencesProvider
     extends
@@ -22,7 +22,7 @@ final class SharedPreferencesProvider
     with
         $FutureModifier<SharedPreferences>,
         $FutureProvider<SharedPreferences> {
-  const SharedPreferencesProvider._()
+  SharedPreferencesProvider._()
     : super(
         from: null,
         argument: null,
@@ -51,7 +51,7 @@ final class SharedPreferencesProvider
 String _$sharedPreferencesHash() => r'dc403fbb1d968c7d5ab4ae1721a29ffe173701c7';
 
 @ProviderFor(appPreferences)
-const appPreferencesProvider = AppPreferencesProvider._();
+final appPreferencesProvider = AppPreferencesProvider._();
 
 final class AppPreferencesProvider
     extends
@@ -61,7 +61,7 @@ final class AppPreferencesProvider
           FutureOr<AppPreferences>
         >
     with $FutureModifier<AppPreferences>, $FutureProvider<AppPreferences> {
-  const AppPreferencesProvider._()
+  AppPreferencesProvider._()
     : super(
         from: null,
         argument: null,
